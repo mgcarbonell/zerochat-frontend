@@ -1,0 +1,27 @@
+header {
+  background-color: slategrey;
+  text-align: left;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: #fff;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: darken(#fff, 20%)
+    }
+  }
+
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      padding: 0px 10px;
+    }
+  }
+}
