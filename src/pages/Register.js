@@ -8,7 +8,7 @@ const Register = props => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleUsername = e => {
-    setName(e.target.value)
+    setUsername(e.target.value)
   }  
   const handleEmail = e => {
     setEmail(e.target.value)
