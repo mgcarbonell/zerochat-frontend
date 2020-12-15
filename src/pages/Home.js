@@ -2,14 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import CodeVidGlitched01Short from '../video/CodeVidGlitched01Short.mp4'
 import CodeVidGlitched01Long from '../video/CodeVidGlitched01Long.mp4'
+import { 
+          Button, 
+          ThemeProvider, 
+          createTheme, 
+          Row, 
+          Col,
+                  } from 'arwes';
+
 
 const Home = (props) => {
   return (
     <div>
-      <h1>Welcome to PERN Auth</h1>
       <video autoPlay loop muted
         style={{
           position: "absolute",
+          marginTop: "-1px",
+          padding: "0",
           width: "100%",
           left: "50%",
           top: "50%",
@@ -22,12 +31,22 @@ const Home = (props) => {
       >
         <source src={CodeVidGlitched01Long} type="video/mp4" />
       </video>
-      <div className="links">
-        <ul>
-          <li><Link to={'/register'}>Register</Link></li>
-          <li><Link to={'/login'}>Login</Link></li>
-        </ul>
-      </div>
+        <Row>
+          <Col s={12}>
+            <Col s={3}></Col>
+            <Col s={3}>
+              <Button animate layer='alert'>
+                <Link to={'/register'}>Register</Link>
+              </Button>
+            </Col>
+            <Col s={3}>
+              <Button animate layer='alert'>
+                <Link to={'/login'}>Login</Link>
+              </Button>  
+            </Col>
+            <Col s={3}></Col>
+          </Col>
+        </Row>
 
     </div>
   );

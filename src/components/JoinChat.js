@@ -13,7 +13,7 @@ const JoinChat = (props) => {
       <div>
         <div>
           <h1>Hello Citizen</h1>
-          <h3>Where do you wish to connect on Ono-Sendai Net?</h3>
+          <h3>Where do you wish to connect on cyberspace?</h3>
           <div>
             <input 
               placeholder="Node" 
@@ -23,7 +23,7 @@ const JoinChat = (props) => {
           </div>
           <Link 
             onClick={event => !node ? event.preventDefault() : null} 
-            to={`/chat?name=${username}&node=${node}`}>
+            to={`/chat?username=${username}&node=${node}`}>
             <Button animate>Connect to Node</Button>
           </Link>
         </div>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import Routes from './config/Routes'
-import UserModel from './models/user'
-import Navbar from './components/Navbar'
-import { ThemeProvider, createTheme } from 'arwes'
+import React, { useState } from 'react';
+import Routes from './config/Routes';
+import UserModel from './models/user';
+import Navbar from './components/Navbar';
+// import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from 'arwes';
 
 const myTheme = {
   color: {
@@ -18,6 +19,14 @@ const myTheme = {
     }
   }
 };
+
+// const theme = createMuiTheme({
+//   typography: {
+//     fontFamily: [
+
+//     ].join(',')
+//   }
+// })
 
 function App() {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'))
