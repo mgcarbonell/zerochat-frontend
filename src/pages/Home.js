@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import CodeVidGlitched01Long from '../video/CodeVidGlitched01Long.mp4'
 import { 
           Button, 
-          ThemeProvider, 
-          createTheme, 
           Row, 
           Col,
                   } from 'arwes';

@@ -1,96 +1,104 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
 import queryString from 'query-string'
 import io from "socket.io-client";
+import ChatInfoBar from '../components/ChatInfoBar'
+import ChatTerminal from '../components/ChatTerminal'
+import ChatMessages from '../components/ChatMessages'
+import ConnectedUsers from '../components/ConnectedUsers'
 import {
-        Card,
-        TextField,
-        IconButton
+        Box
                     } from '@material-ui/core'
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import PublicSharpIcon from '@material-ui/icons/PublicSharp';
-import CloseIcon from '@material-ui/icons/Close'
+import { makeStyles } from '@material-ui/core/styles';
+import { Arwes, Frame } from 'arwes'
 
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    backgroundColor: "#1A1A1D"
+  },
+  innerContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    backgroundColor: "#1A1A1D",
+    borderRadius: "8px",
+    height: "60%",
+    width: "35%"
+  }
+}))
+const ENDPOINT = 'http://localhost:4000'
 let socket; 
 
-const Chat = ({ location }, props) => {
-
-  const [username, setUsername] = useState('')
-  const [node, setNode] = useState('')
+const Chat = ({ location }) => {
+  const [username, setUsername] = useState('');
+  const [node, setNode] = useState('');
+  const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-
-  const ENDPOINT = 'http://localhost:4000'
+  
+  const classes = useStyles();
   
   useEffect(() => {
-    const { username, node } = queryString.parse(location.search)
-  
-    socket = io(ENDPOINT)
-    console.log(socket)
+    const { username, node } = queryString.parse(location.search);
 
-    setUsername(username)
-    setNode(node)
-    console.log(username, node)
-    socket.emit('join', { username, node });
+    socket = io(ENDPOINT);
+
+    setNode(node);
+    setUsername(username);
+
+    socket.emit('join', { username, node }, (error) => {
+      if(error) {
+        alert(error);
+      }
+    });
+  }, [ENDPOINT, location.search]);
+  
+  useEffect(() => {
+    socket.on('message', message => {
+      setMessages(messages => [ ...messages, message ]);
+    });
     
-    return () => {
-      socket.off();
-    }
-  
-  }, [ENDPOINT, location.search])
+    socket.on("nodeData", ({ users }) => {
+      setUsers(users);
+    });
+}, []);
 
-  useEffect(() => {
-    // listen for messages + payloads
-    socket.on('message', (message) => {
-      // cannot mutate state, spread array
-      setMessages([...messages, message])
-    })
-  }, [messages])
-
-  // send message event handler
   const sendMessage = (event) => {
     event.preventDefault();
 
-    if(message){
-      socket.emit('sendMessage', message, () => setMessage(''))
+    if(message) {
+      socket.emit('sendMessage', message, () => setMessage(''));
     }
   }
 
   console.log(message, messages)
 
   return (
-    <Card>
-      <CardHeader
-        avatar={
-          <PublicSharpIcon />
-        }
-        title={ node }
-        action={
-          <IconButton
-            variant="contained"
-            aria-label="close"
-            component={ Link } 
-            to={'/join'}
-          >
-            <CloseIcon color="action"/>
-          </IconButton>
-        }
-      />
-      <CardContent>
-
-      </CardContent>
-      <CardActions>
-        <TextField
-          variant="outlined"
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-          onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
-        />
-      </CardActions>
-      
-    </Card>
+    <Arwes>
+      <Box className={classes.container}>
+        <Frame
+          animate={true}
+          level={3}
+          corners={4}
+          layer='primary'
+        >
+          <Box className={classes.innerContainer}>
+            <ChatInfoBar node={ node } />
+            <ChatMessages messages={ messages } username={ username }/>
+            <ChatTerminal 
+              message={ message }
+              setMessage={ setMessage }
+              sendMessage={ sendMessage }
+            />
+          </Box>
+        </Frame>
+        <ConnectedUsers users = { users }/>
+      </Box>
+    </Arwes>
   )
 }
 

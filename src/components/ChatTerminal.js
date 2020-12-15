@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import queryString from 'query-string'
-import io from "socket.io-client";
+import React from 'react'
 
-const socket = io.connect(process.env.SOCKET_ENDPOINT)
+// let's make this the input bar
 
-const ChatTerminal = ({ location }) => {
-
-  const [user, setUser] = useState('')
-  const [room, setRoom] = useState('')
-  
-  useEffect(() => {
-    const { user, node } = queryString.parse(location.search)
-    console.log(user, node)
-  })
+const ChatTerminal = ({ message, setMessage, sendMessage }) => {
 
   return (
-    <div>
-      I'm still a piece of garbage.
-    </div>
+    <form>
+      <input 
+        type="text"
+        placeholder="|>"
+        value={ message }
+        onChange={(event) => setMessage(event.target.value)}
+        onKeyPress={(event) => event.key === 'Enter' ? sendMessage(event) : null}
+      />
+      <button onClick={(event) => sendMessage(event)}>send</button>
+    </form>
   )
 }
 

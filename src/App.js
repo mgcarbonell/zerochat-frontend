@@ -3,7 +3,7 @@ import Routes from './config/Routes';
 import UserModel from './models/user';
 import Navbar from './components/Navbar';
 // import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider, createTheme } from 'arwes';
+import { Arwes, ThemeProvider, createTheme } from 'arwes';
 
 const myTheme = {
   color: {
@@ -17,7 +17,11 @@ const myTheme = {
       dark: '#a818a7',
       light: '#f458f2'
     }
-  }
+  },
+  typography: {
+    headerFontFamily: 'Roboto Mono',
+    fontFamily: 'Share Tech Mono'
+  } 
 };
 
 // const theme = createMuiTheme({
@@ -58,19 +62,21 @@ function App() {
 
   return (
     <ThemeProvider theme={createTheme(myTheme)}>
-      <div className="App">
-        <Navbar
-          currentUser={ currentUser }
-          currentUsername = { currentUsername }
-          logout = { logout }
-        />
-        <Routes 
-          currentUser={ currentUser }
-          currentUsername={ currentUsername }
-          storeUser={ storeUser }
-          storeUsername={ storeUsername }
-        />
-      </div>
+      <Arwes animte show>
+        <div className="App">
+          <Navbar
+            currentUser={ currentUser }
+            currentUsername = { currentUsername }
+            logout = { logout }
+          />
+          <Routes 
+            currentUser={ currentUser }
+            currentUsername={ currentUsername }
+            storeUser={ storeUser }
+            storeUsername={ storeUsername }
+          />
+        </div>
+      </Arwes>
     </ThemeProvider>
   );
 }
