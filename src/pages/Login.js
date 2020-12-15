@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import UserModel from '../models/user'
+import { Button, TextField } from '@material-ui/core';
+// import { makeStyles } from '@material-ui/core/styles';
+
 
 const Login = props => {
+  // const classes = useStyles();
+
   let [email, setEmail] = useState('')
   let [password, setPassword] = useState('')
 
@@ -27,6 +32,8 @@ const Login = props => {
         }
         // storeUser is defined in the app component and passed to Login
         props.storeUser(data.user)
+        props.storeUsername(data.username)
+        console.log(data.username)
       })
       .catch(err => console.log('Login Error', err))
   }
@@ -37,32 +44,39 @@ const Login = props => {
   return (
     <div>
       <h4>Login</h4>
-      <form onSubmit={ handleSubmit }>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Email</label>
-          <input 
-            onChange={ handleEmail } 
-            value={ email } 
-            type="email" 
+          <TextField 
+            onChange={ handleEmail }
+            value={ email }
+            type="email"
             id="email" 
-            name="email" 
-            required  
+            name="email"
+            label="Email" 
+            variant="filled" 
+            required
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input 
-            onChange={ handlePassword } 
-            value={ password } 
-            type="password" 
-            id="password" 
-            name="password" 
-            required
-          />
-        
+        <TextField
+          onChange={ handlePassword }
+          value={ password }
+          type="password"
+          id="password"
+          name="password"
+          label="password"
+          variant="filled"
+          required
+        />        
         </div>
-        <button type="submit">Login</button>
+        <Button 
+          variant="contained" 
+          color="primary" 
+          type="submit"
+        >
+          Login
+        </Button>
       </form>
     </div>
   )

@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
-import UserModel from '../models/user'
+import React, { useState } from 'react';
+import UserModel from '../models/user';
+import { Button, TextField } from '@material-ui/core';
+// import { makeStyles } from '@material-ui/styles';
+
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     '& .MuiTextField-root': {
+//       margin: theme.spacing(1),
+//       width: '25ch',
+//     },
+//   },
+// }));
+
 
 const Register = props => {
+  // const classes = useStyles();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [bio, setBio] = useState('')
 
   const handleUsername = e => {
     setUsername(e.target.value)
-  }  
+  }
   const handleEmail = e => {
     setEmail(e.target.value)
   }
@@ -20,11 +35,14 @@ const Register = props => {
     setConfirmPassword(e.target.value)
   }
 
+  const handleBio = e => {
+    setBio(e.target.value)
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
-
     if (password === confirmPassword) {
-      UserModel.create({ username, email, password })
+      UserModel.create({ email, username, password, bio })
         .then(data => {
           console.log('Successful register', data)
           // redirect to /login
@@ -32,56 +50,79 @@ const Register = props => {
         })
     }
   }
+  
 
   return (
     <div>
       <h4>Register</h4>
-      <form onSubmit={ handleSubmit }>
+      <form noValidate autoComplete="off" onSubmit={ handleSubmit }>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input 
+          <TextField 
             onChange={ handleUsername } 
             value={ username }
             type="text" 
             id="username" 
             name="username" 
+            label="username"
+            variant="filled"
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Email</label>
-          <input 
+          <TextField 
             onChange={ handleEmail } 
             value={ email } 
             type="email" 
             id="email" 
             name="email" 
+            label="email"
+            variant="filled"
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Password</label>
-          <input 
+          <TextField 
             onChange={ handlePassword } 
             value={ password } 
             type="password" 
             id="password" 
             name="password" 
+            label="password"
+            variant="filled"
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="confirm-password">Confirm Password</label>
-          <input 
+          <TextField
             onChange={ handleConfirmPassword } 
             value={ confirmPassword } 
             type="password" 
             id="confirm-password" 
             name="confirm-password" 
+            label="confirm your password"
+            variant="filled"
             required
           />
         </div>
-        <button type="submit">Register</button>
+        <div className="form-group">
+          <TextField 
+            onChange={ handleBio } 
+            value={ bio }
+            type="text" 
+            id="bio" 
+            name="bio" 
+            label="bio"
+            variant="filled"
+            required
+          />
+        </div>
+        <Button 
+          variant="contained" 
+          color="primary" 
+          type="submit"
+        >
+          Register
+        </Button>
       </form>
     </div>
   )

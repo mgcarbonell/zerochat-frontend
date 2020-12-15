@@ -1,8 +1,21 @@
 import React from 'react';
+import Navbar from '../components/Navbar'
 
-const Profile = props => {
+const Profile = (props) => {
+
+  // const [formToggle, setFormToggle] = useState(false);
+  
+
+  // useEffect(() => {
+  //   EditProfileModel.show
+  // })
+  let username = localStorage.getItem('username')
+
   return (
-    <h1>Profile of user with ID { props.currentUser }</h1>
+    <div>
+      <Navbar />
+      <h1>Profile of { username }</h1>
+    </div>
   )
 }
 
