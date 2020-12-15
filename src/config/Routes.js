@@ -5,6 +5,8 @@ import Home from '../pages/Home'
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Profile from '../pages/Profile'
+import Chat from '../pages/Chat'
+import JoinChat from '../components/JoinChat'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const currentUser = localStorage.getItem('id')
@@ -21,12 +23,15 @@ const Routes = (props) => (
     <Route path='/login' render={ (routeComponentProps) => {
       return  <Login 
                 {...routeComponentProps}
-                // more props to come here
                 currentUser={ props.currentUser }
                 storeUser={ props.storeUser }
+                currentUsername={ props.currentUsername }
+                storeUsername={ props.storeUsername }
               />
     } } />
     <PrivateRoute path='/profile' component={ Profile } currentUser={ props.currentUser } />
+    <PrivateRoute path='/join' component={ JoinChat } currentUser={ props.currentUser } />
+    <PrivateRoute path='/chat' component={ Chat } currentUser={ props.currentUser } />
   </Switch>
 )
 
