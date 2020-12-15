@@ -12,7 +12,6 @@ const JoinChat = (props) => {
     <Arwes>
       <div>
         <div>
-          <h1>Hello Citizen</h1>
           <h3>Where do you wish to connect on cyberspace?</h3>
           <div>
             <input 

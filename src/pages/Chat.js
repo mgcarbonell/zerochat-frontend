@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import queryString from 'query-string'
 import io from "socket.io-client";
+import {
+        Card,
+        TextField,
+        IconButton
+                    } from '@material-ui/core'
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import PublicSharpIcon from '@material-ui/icons/PublicSharp';
+import CloseIcon from '@material-ui/icons/Close'
 
 let socket; 
 
@@ -25,7 +36,6 @@ const Chat = ({ location }, props) => {
     socket.emit('join', { username, node });
     
     return () => {
-      socket.emit('disconnect');
       socket.off();
     }
   
@@ -51,15 +61,36 @@ const Chat = ({ location }, props) => {
   console.log(message, messages)
 
   return (
-    <div>
-      <div>
-        <input 
+    <Card>
+      <CardHeader
+        avatar={
+          <PublicSharpIcon />
+        }
+        title={ node }
+        action={
+          <IconButton
+            variant="contained"
+            aria-label="close"
+            component={ Link } 
+            to={'/join'}
+          >
+            <CloseIcon color="action"/>
+          </IconButton>
+        }
+      />
+      <CardContent>
+
+      </CardContent>
+      <CardActions>
+        <TextField
+          variant="outlined"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
         />
-      </div>
-    </div>
+      </CardActions>
+      
+    </Card>
   )
 }
 
