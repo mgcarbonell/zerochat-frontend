@@ -2,11 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import CodeVidGlitched01Short from '../video/CodeVidGlitched01Short.mp4'
 import CodeVidGlitched01Long from '../video/CodeVidGlitched01Long.mp4'
-import { 
-          Button, 
-          Row, 
-          Col,
-                  } from 'arwes';
+
 
 
 const Home = (props) => {
@@ -29,23 +25,13 @@ const Home = (props) => {
       >
         <source src={CodeVidGlitched01Long} type="video/mp4" />
       </video>
-        <Row>
-          <Col s={12}>
-            <Col s={3}></Col>
-            <Col s={3}>
-              <Button animate layer='alert'>
+        <button>
                 <Link to={'/register'}>Register</Link>
-              </Button>
-            </Col>
-            <Col s={3}>
-              <Button animate layer='alert'>
-                <Link to={'/login'}>Login</Link>
-              </Button>  
-            </Col>
-            <Col s={3}></Col>
-          </Col>
-        </Row>
+              </button>
 
+              <button>
+                <Link to={'/login'}>Login</Link>
+              </button> 
     </div>
   );
 }

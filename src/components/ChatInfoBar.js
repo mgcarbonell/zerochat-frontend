@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Loading } from 'arwes'
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
@@ -35,9 +34,7 @@ const ChatInfoBar = ({ node }) => {
 
   return (
       <div className={classes.root}>
-
           <Toolbar className={classes.toolBar}>
-            <Loading animate small edge="start" className={classes.chatIcon}/>
             <h3 className={classes.title}>{ node }</h3>
             <IconButton
               className={classes.closeIcon}

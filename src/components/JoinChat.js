@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import{ Arwes, Button, Heading, Puffs } from 'arwes'
 
+// use puffs
 const JoinChat = () => {
 
   
@@ -10,13 +10,9 @@ const JoinChat = () => {
   let username = localStorage.getItem('username')
 
   return (
-    <Arwes>
-      <Puffs>
-        <div style={{ width: '100%', height: 500 }} />
-      </Puffs>
         <div>
           <div>
-            <Heading node='h2'>Where do you wish to connect on cyberspace?</Heading>
+            <h2>Where do you wish to connect on cyberspace?</h2>
             <div>
               <input 
                 placeholder="Node" 
@@ -27,11 +23,10 @@ const JoinChat = () => {
             <Link 
               onClick={event => !node ? event.preventDefault() : null} 
               to={`/chat?username=${username}&node=${node}`}>
-              <Button animate>Connect to Node</Button>
+              <button animate>Connect to Node</button>
             </Link>
           </div>
         </div>
-    </Arwes>
   )
 }
 

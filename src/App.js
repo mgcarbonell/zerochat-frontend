@@ -2,35 +2,7 @@ import React, { useState } from 'react';
 import Routes from './config/Routes';
 import UserModel from './models/user';
 import Navbar from './components/Navbar';
-// import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { Arwes, ThemeProvider, createTheme } from 'arwes';
 
-const myTheme = {
-  color: {
-    primary: {
-      base: '#be26fc',
-      dark: '#8e1bbd',
-      light: '#c95bf6'
-    },
-    header: {
-      base: '#fc26fa',
-      dark: '#a818a7',
-      light: '#f458f2'
-    }
-  },
-  typography: {
-    headerFontFamily: 'Roboto Mono',
-    fontFamily: 'Share Tech Mono'
-  } 
-};
-
-// const theme = createMuiTheme({
-//   typography: {
-//     fontFamily: [
-
-//     ].join(',')
-//   }
-// })
 
 function App() {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'))
@@ -61,14 +33,7 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={createTheme(myTheme)}>
-      <Arwes animte show>
-        <div className="App">
-          <Navbar
-            currentUser={ currentUser }
-            currentUsername = { currentUsername }
-            logout = { logout }
-          />
+        <div>
           <Routes 
             currentUser={ currentUser }
             currentUsername={ currentUsername }
@@ -76,8 +41,6 @@ function App() {
             storeUsername={ storeUsername }
           />
         </div>
-      </Arwes>
-    </ThemeProvider>
   );
 }
 

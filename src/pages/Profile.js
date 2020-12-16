@@ -1,5 +1,6 @@
 import React from 'react';
-import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const Profile = (props) => {
 
@@ -13,10 +14,17 @@ const Profile = (props) => {
 
   return (
     <div>
-      <Navbar />
-      <h1>Profile of { username }</h1>
+    <Navbar
+      currentUser={ props.currentUser }
+      currentUsername = { props.currentUsername }
+      logout = { props.logout }
+    />
+      <h1>Welcome Netrunner: { username }</h1>
+      <button>
+        <Link to={ '/join' }>Enter Cyberspace</Link>
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

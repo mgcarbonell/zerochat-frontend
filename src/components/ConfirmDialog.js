@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 // Drop in component for confirmation actions
 const ConfirmDialog = (props) => {
 
-  const { title, children, open, setOpen, onConfirm } = props;
+  const { title, img, children, open, setOpen, onConfirm } = props;
 
   return (
     <Dialog
@@ -18,7 +18,10 @@ const ConfirmDialog = (props) => {
     >
       {/* inherits title and content as a prop from the parent component */}
       <DialogTitle id="confirm-dialog">{title}</DialogTitle>
-      <DialogContent>{children}</DialogContent>
+      <DialogContent>
+        {img}
+        {children}
+      </DialogContent>
       <DialogActions>
         <Button
           variant="contained"

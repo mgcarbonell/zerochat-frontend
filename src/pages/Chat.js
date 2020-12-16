@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import queryString from 'query-string'
 import io from "socket.io-client";
+import Navbar from '../components/Navbar'
 import ChatInfoBar from '../components/ChatInfoBar'
 import ChatTerminal from '../components/ChatTerminal'
 import ChatMessages from '../components/ChatMessages'
@@ -8,39 +9,19 @@ import ConnectedUsers from '../components/ConnectedUsers'
 import {
         Box
                     } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
-import { Arwes, Frame } from 'arwes'
 
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-    backgroundColor: "#1A1A1D"
-  },
-  innerContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    backgroundColor: "#1A1A1D",
-    borderRadius: "8px",
-    height: "60%",
-    width: "35%"
-  }
-}))
+
 const ENDPOINT = 'http://localhost:4000'
 let socket; 
 
-const Chat = ({ location }) => {
+const Chat = ({ location }, props) => {
   const [username, setUsername] = useState('');
   const [node, setNode] = useState('');
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   
-  const classes = useStyles();
   
   useEffect(() => {
     const { username, node } = queryString.parse(location.search);
@@ -59,7 +40,7 @@ const Chat = ({ location }) => {
   
   useEffect(() => {
     socket.on('message', message => {
-      setMessages(messages => [ ...messages, message ]);
+      setMessages(messages => [...messages, message]);
     });
     
     socket.on("nodeData", ({ users }) => {
@@ -78,15 +59,13 @@ const Chat = ({ location }) => {
   console.log(message, messages)
 
   return (
-    <Arwes>
-      <Box className={classes.container}>
-        <Frame
-          animate={true}
-          level={3}
-          corners={4}
-          layer='primary'
-        >
-          <Box className={classes.innerContainer}>
+      <Box>
+        <Navbar
+          currentUser={ props.currentUser }
+          currentUsername = { props.currentUsername }
+          logout = { props.logout }
+        />
+          <Box>
             <ChatInfoBar node={ node } />
             <ChatMessages messages={ messages } username={ username }/>
             <ChatTerminal 
@@ -95,10 +74,8 @@ const Chat = ({ location }) => {
               sendMessage={ sendMessage }
             />
           </Box>
-        </Frame>
         <ConnectedUsers users = { users }/>
       </Box>
-    </Arwes>
   )
 }
 
