@@ -26,7 +26,8 @@ Adrian Hajdin
 Myron Schippers
 Traversy Media
 Ben Awad
-
+Anthony Sistilli
+CodeAffection
 
 Thank you to Spotify for the techno and lo-fi hip-hop playlists.
 Thank you to my Spotify DnB playlist.
