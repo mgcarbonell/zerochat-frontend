@@ -3,6 +3,12 @@
 ## About
 
 ## Technologies
+React.js
+socket.io
+HTML5
+CSS3
+
+## Link to the Backend
 
 ## Code Snippets
 
