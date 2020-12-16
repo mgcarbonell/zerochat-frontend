@@ -8,7 +8,7 @@ export default class UserModel {
       },
       body: JSON.stringify(data)
     }).then(res => res.json())
-  }
+  };
 
   static login(credentials) {
     // remember to send authorization headers
@@ -21,15 +21,15 @@ export default class UserModel {
       // auth headers - included with any request requiring authentication
       credentials: 'include'
     }).then(res => res.json())
-  }
+  };
 
   static logout() {
     return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/auth/logout`, {
       method: "DELETE",
       credentials: 'include'
     })
-  }
-
+  };
+  // add a new route for user update and delete
   static update(data) {
     return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/users/update`, {
       method: 'PUT',
@@ -38,17 +38,16 @@ export default class UserModel {
       },
       body: JSON.stringify(data)
     }).then(res => res.json())
-  }
+  };
 
-  static delete(currentUser) {
+  static delete(data) {
     return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/users/destroy`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(currentUser)
+      body: JSON.stringify(data)
     }).then(res => res.json())
-  }
-}
+  };
+};
 
-// add a new route for user update and delete

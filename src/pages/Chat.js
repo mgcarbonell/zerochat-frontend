@@ -6,8 +6,8 @@ import ChatTerminal from '../components/ChatTerminal'
 import ChatMessages from '../components/ChatMessages'
 import ConnectedUsers from '../components/ConnectedUsers'
 import {
-        Box
-                    } from '@material-ui/core'
+  Box
+} from '@material-ui/core'
 
 
 
@@ -52,10 +52,10 @@ const Chat = ({ location }, props) => {
 
     if(message) {
       socket.emit('sendMessage', message, () => setMessage(''));
-    }
-  }
+    };
+  };
 
-  console.log(message, messages)
+  console.log(message, messages);
 
   return (
       <Box>
@@ -70,8 +70,8 @@ const Chat = ({ location }, props) => {
         </Box>
         <ConnectedUsers users = { users }/>
       </Box>
-  )
-}
+  );
+};
 
 
 export default Chat;

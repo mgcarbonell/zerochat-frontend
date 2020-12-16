@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import UserModel from '../models/user';
-import { Button, Grid, Paper, TextField } from '@material-ui/core';
+import { 
+  Button, 
+  Grid, 
+  Paper, 
+  TextField,
+  IconButton 
+} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close'
 
 export default function EditCreds(props) {
 
-  const [username, setUsername] = useState('')
-  const [bio, setBio] = useState('')
+  const [username, setUsername] = useState('');
+  const [bio, setBio] = useState('');
 
   
   const handleSubmit = (event) => {
@@ -13,11 +20,16 @@ export default function EditCreds(props) {
     UserModel.update({ username, bio })
     .then(data => {
       props.setFormToggle(false)
-    })
+    });
   };
 
   return (
     <div style={{ padding: 20 }}>
+      <IconButton
+        onClick={event => props.setFormToggle(false)}
+      >
+        <CloseIcon />
+      </IconButton>
       <form
         onSubmit={handleSubmit}
         noValidate

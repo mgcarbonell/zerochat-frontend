@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import UserModel from '../models/user';
-import { Button, TextField } from '@material-ui/core';
+import { 
+  Button, 
+  TextField 
+} from '@material-ui/core';
 
 
 const Register = props => {
@@ -10,36 +13,39 @@ const Register = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [bio, setBio] = useState('')
+  const [bio, setBio] = useState('');
 
   const handleUsername = e => {
     setUsername(e.target.value)
-  }
+  };
+
   const handleEmail = e => {
     setEmail(e.target.value)
-  }
+  };
+
   const handlePassword = e => {
     setPassword(e.target.value)
-  }
+  };
+
   const handleConfirmPassword = e => {
     setConfirmPassword(e.target.value)
-  }
+  };
 
   const handleBio = e => {
     setBio(e.target.value)
-  }
+  };
 
   const handleSubmit = e => {
     e.preventDefault()
     if (password === confirmPassword) {
       UserModel.create({ email, username, password, bio })
         .then(data => {
-          console.log('Successful register', data)
+          console.log('Successful register', data);
           // redirect to /login
-          props.history.push('/login')
-        })
-    }
-  }
+          props.history.push('/profile');
+        });
+    };
+  };
   
 
   return (
@@ -115,7 +121,7 @@ const Register = props => {
         </Button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default Register;

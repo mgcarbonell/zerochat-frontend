@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-              AppBar, 
-              Toolbar, 
-              IconButton, 
-              MenuItem, 
-              Menu,
-              Grid } from '@material-ui/core';
+  AppBar, 
+  Toolbar, 
+  IconButton, 
+  MenuItem, 
+  Menu,
+  Grid 
+} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import { makeStyles } from '@material-ui/core/styles';
 // import logo from '../assets/an.png'
@@ -111,6 +112,6 @@ const Navbar = (props) => {
       </AppBar>
     </div>
   );
-}
+};
 
 export default Navbar;

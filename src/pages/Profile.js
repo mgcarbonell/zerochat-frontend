@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import UserModel from '../models/user';
 import EditCreds from '../components/EditCreds';
 import CredentialsContainer from '../components/CredentialsContainer';
+import ConfirmDialog from '../components/ConfirmDialog';
 import { 
-        Card,
-        Grid,
-        IconButton,
-        makeStyles
-                    } from '@material-ui/core';
+  Card,
+  Grid,
+  IconButton,
+  makeStyles
+} from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import UserModel from '../models/user';
-import ConfirmDialog from '../components/ConfirmDialog';
 
 
 
@@ -33,7 +33,7 @@ const Profile = (props) => {
       props.history.push('/')
       )
       .then(localStorage.clear())
-  }
+  };
 
   return (
     <div>
