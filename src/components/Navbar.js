@@ -17,9 +17,6 @@ const useStyles = makeStyles((theme) => ({
     background: 'transparent', 
     boxShadow: 'none'
   },
-  homeButton: {
-    marginRight: '1rem',
-  },
   profileButton: {
     marginLeft: '1rem'
   },
@@ -31,11 +28,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = (props) => {
   const classes = useStyles();
+
   const [anchorEl, setAnchorEl] = useState(null);
+  
   const open = Boolean(anchorEl);
+  
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  
   const handleClose = () => {
     setAnchorEl(null)
   };
@@ -45,7 +46,6 @@ const Navbar = (props) => {
     <div className={classes.root}>
       <AppBar 
         position="static" 
-
         >
         <Toolbar>
             {/* <Link to={'/'}>
@@ -68,36 +68,44 @@ const Navbar = (props) => {
               justify="flex-start"
               alignItems="center"
             >
-            <IconButton
-              className={classes.profileButton}
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-              >
-                <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                horizontal: 'right'
-              }}
-              keepMounted
-              transformOrigin={{
-                horizontal: 'right'
-              }}
-              open={open}
-              onClose={handleClose}
-            >
-              <MenuItem component={ Link } to={'/profile'} onClick={handleClose}>
-                Profile
-              </MenuItem>
-              <MenuItem component={ Link } to={'/logout'} onClick={handleClose, props.logout}>
-                Logout
-              </MenuItem>
-            </Menu>
+              { props.currentUser ? 
+                <>
+                  <IconButton
+                    className={classes.profileButton}
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={handleMenu}
+                    color="inherit"
+                    >
+                      <AccountCircle />
+                  </IconButton>
+                  <Menu
+                    id="menu-appbar"
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      horizontal: 'right'
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      horizontal: 'right'
+                    }}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    <MenuItem component={ Link } to={'/profile'} onClick={handleClose}>
+                      Profile
+                    </MenuItem>
+                    <MenuItem component={ Link } to={'/logout'} onClick={handleClose, props.logout}>
+                      Logout
+                    </MenuItem>
+                  </Menu>
+                </>
+              :
+                <>
+
+                </>
+              }
           </Grid>
         </Toolbar>
       </AppBar>

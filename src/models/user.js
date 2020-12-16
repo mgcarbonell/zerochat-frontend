@@ -29,4 +29,26 @@ export default class UserModel {
       credentials: 'include'
     })
   }
+
+  static update(data) {
+    return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/users/update`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+  }
+
+  static delete(currentUser) {
+    return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/users/destroy`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(currentUser)
+    }).then(res => res.json())
+  }
 }
+
+// add a new route for user update and delete

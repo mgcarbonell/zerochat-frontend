@@ -33,7 +33,8 @@ const Login = props => {
         // storeUser is defined in the app component and passed to Login
         props.storeUser(data.user)
         props.storeUsername(data.username)
-        console.log(data.username)
+        props.storeBio(data.bio)
+        console.log(data.user, data.username, data.bio)
       })
       .catch(err => console.log('Login Error', err))
   }

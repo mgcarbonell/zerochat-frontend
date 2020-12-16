@@ -7,7 +7,8 @@ import Navbar from './components/Navbar';
 function App() {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'))
   const [currentUsername, setCurrentUsername] = useState(localStorage.getItem('username'));
-
+  const [bio, setBio] = useState()
+  
   const storeUser = (userId) => {
     localStorage.setItem('id', userId)
     setCurrentUser( userId )
@@ -34,6 +35,11 @@ function App() {
 
   return (
         <div>
+          <Navbar
+            currentUser={ currentUser }
+            currentUsername = { currentUsername }
+            logout = { logout }
+          />
           <Routes 
             currentUser={ currentUser }
             currentUsername={ currentUsername }

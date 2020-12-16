@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import queryString from 'query-string'
 import io from "socket.io-client";
-import Navbar from '../components/Navbar'
 import ChatInfoBar from '../components/ChatInfoBar'
 import ChatTerminal from '../components/ChatTerminal'
 import ChatMessages from '../components/ChatMessages'
@@ -60,20 +59,15 @@ const Chat = ({ location }, props) => {
 
   return (
       <Box>
-        <Navbar
-          currentUser={ props.currentUser }
-          currentUsername = { props.currentUsername }
-          logout = { props.logout }
-        />
-          <Box>
-            <ChatInfoBar node={ node } />
-            <ChatMessages messages={ messages } username={ username }/>
-            <ChatTerminal 
-              message={ message }
-              setMessage={ setMessage }
-              sendMessage={ sendMessage }
-            />
-          </Box>
+        <Box>
+          <ChatInfoBar node={ node } />
+          <ChatMessages messages={ messages } username={ username }/>
+          <ChatTerminal 
+            message={ message }
+            setMessage={ setMessage }
+            sendMessage={ sendMessage }
+          />
+        </Box>
         <ConnectedUsers users = { users }/>
       </Box>
   )
