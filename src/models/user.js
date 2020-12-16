@@ -36,7 +36,7 @@ export default class UserModel {
       headers: {
         "Content-Type": "application/json"
       },
-      credentials: 'include'
+      credentials: 'include',
       body: JSON.stringify(data)
     }).then(res => res.json())
   };
