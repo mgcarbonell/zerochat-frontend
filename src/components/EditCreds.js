@@ -12,13 +12,17 @@ import CloseIcon from '@material-ui/icons/Close'
 export default function EditCreds(props) {
 
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('')
   const [bio, setBio] = useState('');
 
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    UserModel.update({ username, bio })
-    .then(data => {
+    UserModel.update({ 
+      username: username, 
+      email: email,
+      bio: bio
+    }).then(data => {
       props.setFormToggle(false)
     });
   };
@@ -47,6 +51,20 @@ export default function EditCreds(props) {
             type='text'
             value={username}
             onInput={event => setUsername(event.target.value)}
+          />
+        </Grid>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+        >
+          <TextField
+            id='outlined-basic'
+            label='email'
+            type='text'
+            value={email}
+            onInput={event => setEmail(event.target.value)}
           />
         </Grid>
         <Grid

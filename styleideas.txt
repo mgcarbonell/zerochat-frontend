@@ -1,0 +1,22 @@
+Mostly black
+
+Sleek
+
+Cybernetic
+
+Cyan
+
+Pink
+
+Reds
+
+React-glitch-effect for headings "Enter cyberspace"
+  https://github.com/sakalx/react-glitch-effect
+  https://www.npmjs.com/package/react-glitch-effect
+  
+Typist effect somewhere?  
+  https://www.npmjs.com/package/react-typist
+
+Do I try to implement Vanta.js?
+https://www.vantajs.com/?effect=net#(backgroundAlpha:1,backgroundColor:2299196,color:6556968,gyroControls:!f,maxDistance:29,minHeight:200,minWidth:200,mouseControls:!t,points:19,scale:1,scaleMobile:1,showDots:!t,spacing:14,touchControls:!t)
+
