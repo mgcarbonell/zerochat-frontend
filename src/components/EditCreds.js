@@ -15,22 +15,21 @@ export default function EditCreds(props) {
   const [email, setEmail] = useState('')
   const [bio, setBio] = useState('');
 
-  
+  const { setFormToggle } = props
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    UserModel.update({ 
-      username: username, 
-      email: email,
-      bio: bio
-    }).then(data => {
+    UserModel.update({ username, email, bio })
+    .then(() => {
       props.setFormToggle(false)
     });
   };
 
+
   return (
     <div style={{ padding: 20 }}>
       <IconButton
-        onClick={event => props.setFormToggle(false)}
+        onClick={() => { setFormToggle(false) }}
       >
         <CloseIcon />
       </IconButton>
@@ -78,6 +77,7 @@ export default function EditCreds(props) {
             label='bio'
             type='text'
             value={bio}
+            rows={3}
             onInput={event => setBio(event.target.value)}
           />
         </Grid>

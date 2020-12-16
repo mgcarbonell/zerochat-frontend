@@ -109,6 +109,7 @@ const Register = props => {
             name="bio" 
             label="bio"
             variant="filled"
+            rows={3}
             required
           />
         </div>
