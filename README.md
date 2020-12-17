@@ -2,20 +2,39 @@
 
 ## About
 
+"Cyberspace. A consensual hallucination experienced daily by billions of legitimate operators, in every nation, by children being taught mathematical concepts... A graphic representation of data abstracted from banks of every computer in the human system. Unthinkable complexity. Lines of light ranged in the nonspace of the mind, clusters and constellations of data. Like city lights, receding..."
+
+― William Gibson, Neuromancer
+
+Ever since I was a small kid, I was absolutely love in science fiction and the genre that was called cyberpunk. It began when I picked up a Shadowrun book at Half Price Books and begged my mom to buy it for me when I was in middle school. I didn't even know what an RPG was, but I read the book from cover to cover. 
+
+I suppose, in a sense, that's why I'm also here at General Assembly. My love of a genre extended to a general curiosity about how things work, especially technology. I was always blown away by scenes from the movie Hackers, Johnny Mnenomic, etc. etc., even though that's how none of this works.
+
+So when we were given the chance to be creative, go wild, I decided I still wanted to tinker, I still wanted to explore, and I wanted to learn more about the place that William Gibson et al called cyberspace, which we call 'the internet.' What better and bigger of a headache to do this than socket.io.
+
+zeroChat is a websocket chat application with a cyberpunk theme and twist to it. Rooms are created for individuals to chat in, and they only exist as long as they are needed; they are ephemeral. I hope to one day add AES256 once I figure out how to make a static ephemeral key so that the users are truly safe in their communications.
+
+See you, Space Cowboy.
+
+
 ## Technologies
-React.js
-socket.io
-HTML5
-CSS3
+
+* React.js
+* socket.io
+* HTML5
+* CSS3
 
 ## Link to the Backend
+
+[zeroChat backend](https://github.com/mgcarbonell/zerochat-backend)
 
 ## Code Snippets
 
 ## Future Development
 
-* Add a friend system
-* Allow users to view other users' profiles (for bio)
+* AES256 real time encryption.
+* Add a friend system.
+* Allow users to view other users' profiles (for bio).
 * Restyle appbar to look like a Win95 appbar.
 
 ## Credits
