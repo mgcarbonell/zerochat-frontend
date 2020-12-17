@@ -65,7 +65,8 @@ Weston Bailey for the encouragement on the theme (even though I only just met hi
 Thank you to my classmates...
 Devin Blair for checking in, explaining theming, and the encouragement,
 Nick Schmitt for giving me reality and sanity checks,
-Brock Molmen, Jane Cho, and Lauren Nguyen for assisting in the update, delete route ideas
+Brock Molmen, Jane Cho, and Lauren Nguyen for assisting in the update, delete route ideas.
+Casey for the CSS encouragement.
 
 Thank you to...
 Lacey for a lot, a lot of wisdom, the videos, and the gifs!
