@@ -75,6 +75,7 @@ Thank you to...
 * Andy Manoske for encouragement through the entire way and not letting me give up.
 * Victor for the encouragement and telling me this is how it'll be.
 * George for helping me with some early Python debugging and the encouragement.
+* Mike for all the encouragement, listening to my lame coding jokes, sharing his own lame coding jokes, and letting me know there's hope after bootcamp!
 
 Shout out to the youtubers:
 * Dion Misic @ Pycon AU
