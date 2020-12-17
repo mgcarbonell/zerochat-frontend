@@ -15,7 +15,7 @@ const JoinChat = () => {
   return (
         <div>
           <div>
-            <Typography variant="h2">Where do you wish to connect on cyberspace?</h2>
+            <Typography variant="h2">Where do you wish to connect on cyberspace?</Typography>
             <div>
               <input 
                 placeholder="Node" 

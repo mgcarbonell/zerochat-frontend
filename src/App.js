@@ -3,6 +3,7 @@ import Routes from './config/Routes';
 import UserModel from './models/user';
 import Navbar from './components/Navbar';
 import { ThemeProvider } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './theme';
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+    <CssBaseline />
       <div>
         <Navbar
           currentUser={ currentUser }

@@ -8,13 +8,29 @@ const theme = createMuiTheme({
       main: '#47DAFF'
     },
     secondary:{
-      main: '#F45B69'
+      main: '#D63AF9'
     },
-    background: {
-      default: '#0C2731'
+    error:{
+      main: '#F25476'
     },
+    warning:{
+      main: '#FFD400'
+    },
+    info:{
+      main: '#E5E1DC'
+    },
+    success:{
+      main: '#45C431'
+    }
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        background: {
+          default: '#36454F'
+        }
+      }
+    },
     MuiButton: {
       root: {
         textTransform: 'none'
@@ -23,6 +39,7 @@ const theme = createMuiTheme({
   },
   typography: {
     fontFamily: font,
+    fontSize: '16px'
   }
 })
 

@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Typography
+} from '@material-ui/core'
 
 const ConnectedUsers = ({ users }) => (
   <div>
@@ -6,13 +9,13 @@ const ConnectedUsers = ({ users }) => (
       users
       ? (
         <div>
-          <h2>
+          <Typography variant="h4">
             {users.map(({ username }) => (
               <div key={ username }>
                 { username }
               </div>
             ))}
-          </h2>
+          </Typography>
         </div>
       )
       : null

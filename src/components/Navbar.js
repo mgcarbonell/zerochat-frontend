@@ -35,8 +35,6 @@ const Navbar = (props) => {
 
   const [anchorEl, setAnchorEl] = useState(false);
   
-  // let open = Boolean(anchorEl);
-  
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -57,7 +55,7 @@ const Navbar = (props) => {
     <div className={classes.root}>
       <AppBar 
         position="static" 
-        style = {{ backgroundColor: "black "}}
+        color="inherit"
         >
         <Toolbar>
           <img className={classes.img} src={logo} alt="zerochat logo" />
@@ -82,9 +80,13 @@ const Navbar = (props) => {
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
                   onClick={handleMenu}
-                  color="inherit"
+                  color="secondary"
+                  fontSize="large"
                   >
-                    <AccountCircle />
+                    <AccountCircle 
+                      color='secondary' 
+                      style={{ fontSize: '300%' }}  
+                    />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
