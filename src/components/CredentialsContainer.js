@@ -1,19 +1,30 @@
 import React from 'react'
 import {
-  Typography,
-  Paper
+  Typography
 } from '@material-ui/core'
+import { Typewriter } from 'react-typewriting-effect';
+
 
 export default function CredentialsContainer(props) {
   
   let username = localStorage.getItem('username');
 
   return (
-    <Paper style = {{ display: 'inline-block' }}>
-      <Typography variant="h4">Username:</Typography>
-      <Typography variant="body">{ username }</Typography>
-      <Typography variant="h4">Bio:</Typography>
-      <Typography variant="body">bio filled here</Typography>
-    </Paper>
+    <div>
+      <Typography variant="h3">Username:</Typography>
+      <Typography variant="body">
+        <Typewriter 
+          string={ username }
+          delay={100}
+        />
+      </Typography>
+      <Typography variant="h3">Bio:</Typography>
+      <Typography variant="body">
+        <Typewriter 
+          string="user has not set a bio"
+          delay={100}
+        />
+      </Typography>
+    </div>
   )
 }

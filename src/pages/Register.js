@@ -51,7 +51,8 @@ const Register = props => {
 
   return (
     <div>
-      <Typography variant="h4">Register</Typography>
+      <Typography variant="h2">Welcome to Access Control</Typography>
+      <Typography variant="h4">Create Your Credentials</Typography>
       <form noValidate autoComplete="off" onSubmit={ handleSubmit }>
         <div className="form-group">
           <TextField 

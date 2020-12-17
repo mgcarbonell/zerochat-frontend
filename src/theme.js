@@ -5,10 +5,12 @@ const font = "'Share Tech Mono', mono-space"
 const theme = createMuiTheme({
   palette: {
     primary:{
-      main: '#47DAFF'
+      main: '#47DAFF',
+      contrastText: '#000'
     },
     secondary:{
-      main: '#D63AF9'
+      main: '#D63AF9',
+      contrastText: '#000'
     },
     error:{
       main: '#F25476'
@@ -21,25 +23,29 @@ const theme = createMuiTheme({
     },
     success:{
       main: '#45C431'
+    },
+    background:{
+      default: '#36454F'
     }
   },
   overrides: {
     MuiCssBaseline: {
-      '@global': {
-        background: {
-          default: '#36454F'
+      '@body': {
+        backgroundColor: '#36454F'
         }
-      }
-    },
+      },
     MuiButton: {
       root: {
         textTransform: 'none'
       }
+    },
+    MuiAppBar: {
+      color: 'black'
     }
   },
   typography: {
     fontFamily: font,
-    fontSize: '16px'
+    fontSize: '16px',
   }
 })
 

@@ -39,7 +39,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-    <CssBaseline />
+      <CssBaseline />
       <div>
         <Navbar
           currentUser={ currentUser }

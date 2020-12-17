@@ -48,7 +48,8 @@ const Login = props => {
 
   return (
     <div>
-      <Typography variant="h4">Login</Typography>
+      <Typography variant="h2">Welcome to Access Control</Typography>
+      <Typography variant="h4">Please Enter Your Credentials</Typography>
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="form-group">
           <TextField 

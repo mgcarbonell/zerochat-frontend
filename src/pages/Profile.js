@@ -12,14 +12,30 @@ import {
   IconButton,
   makeStyles,
   Typography,
-  Button
+  Button,
+  Paper
 } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Barcode from 'react-barcode'
+import glitchedhongkong from '../images/glitchedhongkong.png'
 
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  
+}));
 
 
 const Profile = (props) => {
+
+  const classes = useStyles();
 
   let username = localStorage.getItem('username');
 
@@ -40,61 +56,81 @@ const Profile = (props) => {
   };
 
   return (
-    <div>
-      <Grid>
-        <Grid item xs={12}>
-
-          <Typography variant="h1">Welcome</Typography>
-          <Typography variant="h3">Credentials</Typography>
-        
-          <Grid>
-            <Card style={{ display: 'inline-block' }}>
-              <CardContent>
-                { formToggle ?
-                <>
-                  <EditProfile
-                    username={username}
-                    // bio={}
-                    formToggle={formToggle}
-                    setFormToggle={setFormToggle}
-                  />
-                </>  
-                :
-                <>
-                  <CredentialsContainer
-                    username={username}
-                    // bio={}
-                  />
-                </>
-                }
-              </CardContent>
-              <CardActions>
-                <IconButton onClick={handleToggle}>
-                  <EditIcon />
-                </IconButton>
-                <IconButton aria-label="delete" onClick={() => setConfirmOpen(true)}>
-                  <DeleteIcon />
-                </IconButton>
-                <ConfirmDialog
-                    title="Have you been burned?"
-                    open={confirmOpen}
-                    setOpen={setConfirmOpen}
-                    onConfirm={handleDelete}
-                >
-                  burn user
-                </ConfirmDialog>
-              </CardActions>
-            </Card>
-            <Button 
-              variant="contained" 
-              color="secondary"
-              style={{ display: 'inline-block' }}
-            >
-              <Link to={ '/join' }>enter cyberspace</Link>
-            </Button>
+    <div className={classes.root}>
+      <div>
+        <Paper style={{ backgroundColor: '#36454F', marginTop: '20px', padding: '5px' }}>
+          <Grid 
+            container
+            direction="column"
+            alignItems="center"
+            justify="center"  
+          >
+            <Grid item style={{ padding: 40, justifyContent: "center" }}>
+              <Typography variant="h1" style={{ color: '#D63AF9' }}>
+                Welcome Netrunner 
+              </Typography>
+              <Grid justify="center" style={{ padding: 20 }}>
+                <Card justify="center" style={{ display: 'inline-block'}}>
+                  <CardContent>
+                    <Typography variant="h1">Credentials</Typography>
+                    { formToggle ?
+                    <>
+                      <EditProfile
+                        username={username}
+                        // bio={}
+                        formToggle={formToggle}
+                        setFormToggle={setFormToggle}
+                      />
+                    </>  
+                    :
+                    <>
+                      <CredentialsContainer
+                        username={username}
+                        // bio={}
+                      />
+                    </>
+                    }
+                    <Barcode value = {username} />
+                  </CardContent>
+                  <CardActions style={{ justifyContent: 'space-between' }}>
+                    <IconButton
+                      aria-label="edit user" 
+                      onClick={handleToggle}
+                      style={{ display: 'inline-block', justifyContent: 'flex-start', fontSize: '200%' }}
+                    >
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton 
+                      aria-label="delete" 
+                      style={{ display: 'inline-block', justifyContent: 'flex-end', fontSize: '200%' }}
+                      onClick={() => setConfirmOpen(true)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                    <ConfirmDialog
+                        title="Have you been burned?"
+                        open={confirmOpen}
+                        setOpen={setConfirmOpen}
+                        onConfirm={handleDelete}
+                    >
+                      burn user
+                    </ConfirmDialog>
+                  </CardActions>
+                </Card>
+                <Grid>
+                  <Button 
+                    variant="contained" 
+                    color="secondary"
+                    style={{ marginLeft: '40px'}}
+                  >
+                    <Link to={ '/join' }>enter cyberspace</Link>
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
           </Grid>
-        </Grid>
-      </Grid>
+        </Paper>
+      </div>    
     </div>
   );
 };

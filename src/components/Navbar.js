@@ -55,7 +55,7 @@ const Navbar = (props) => {
     <div className={classes.root}>
       <AppBar 
         position="static" 
-        color="inherit"
+        style = {{ backgroundColor: "black" }}
         >
         <Toolbar>
           <img className={classes.img} src={logo} alt="zerochat logo" />

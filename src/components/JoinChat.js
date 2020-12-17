@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Typography
+  Typography,
+  Button
 } from '@material-ui/core'
 
 // use puffs
@@ -26,7 +27,7 @@ const JoinChat = () => {
             <Link 
               onClick={event => !node ? event.preventDefault() : null} 
               to={`/chat?username=${username}&node=${node}`}>
-              <button animate>connect to node</button>
+              <Button animate>connect to node</Button>
             </Link>
           </div>
         </div>
