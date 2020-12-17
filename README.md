@@ -28,7 +28,19 @@ See you, Space Cowboy.
 
 [zeroChat backend](https://github.com/mgcarbonell/zerochat-backend)
 
-## Code Snippets
+## Screenshots
+
+![login](./public/images/landingscreen.png)
+![credentials](./public/images/credentialscreen.png)
+![joinroomscreen](./public/images/joinroomscreen.png)
+
+## Wireframes
+
+![wireframe](./public/images/basicwireframes.png)
+
+## ERD
+
+![ERD](./public/images/zerochaterd.png)
 
 ## Future Development
 
