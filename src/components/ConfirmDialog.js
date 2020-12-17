@@ -4,11 +4,12 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import skull from '../images/skullfast.gif'
 
 // Drop in component for confirmation actions
 const ConfirmDialog = (props) => {
 
-  const { title, children, open, setOpen, onConfirm } = props;
+  const { title, img, children, open, setOpen, onConfirm } = props;
 
   return (
     <Dialog
@@ -18,14 +19,18 @@ const ConfirmDialog = (props) => {
     >
       {/* inherits title and content as a prop from the parent component */}
       <DialogTitle id="confirm-dialog">{title}</DialogTitle>
-      <DialogContent>{children}</DialogContent>
+      <img src={skull} alt="dissolving skull" />
+      <DialogContent>
+        
+        {children}
+      </DialogContent>
       <DialogActions>
         <Button
           variant="contained"
           onClick={() => setOpen(false)}
-          color="secondary"
+          color="default"
         >
-          No
+          NO
         </Button>
         <Button
           variant="contained"
@@ -33,9 +38,9 @@ const ConfirmDialog = (props) => {
             setOpen(false);
             onConfirm();
           }}
-          color="default"
+          color="secondary"
         >
-          Yes
+          YES
         </Button>
       </DialogActions>
     </Dialog>

@@ -16,6 +16,7 @@
     "prismjs": "^1.22.0",
     "query-string": "^6.13.7",
     "react": "^16.13.1",
+    "react-barcode": "^1.4.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",

@@ -1,46 +1,45 @@
-import React, { useState, useEffect } from 'react'
-import queryString from 'query-string'
+import React, { useState, useEffect } from 'react';
+import queryString from 'query-string';
 import io from "socket.io-client";
-import ChatInfoBar from '../components/ChatInfoBar'
-import ChatTerminal from '../components/ChatTerminal'
-import ChatMessages from '../components/ChatMessages'
-import ConnectedUsers from '../components/ConnectedUsers'
-import {
-        Box
-                    } from '@material-ui/core'
+import ChatInfoBar from '../components/ChatInfoBar';
+import ChatTerminal from '../components/ChatTerminal';
+import ChatMessages from '../components/ChatMessages';
+import ConnectedUsers from '../components/ConnectedUsers';
 import { makeStyles } from '@material-ui/core/styles';
-import { Arwes, Frame } from 'arwes'
+import {
+  Grid
+} from '@material-ui/core';
 
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-    backgroundColor: "#1A1A1D"
-  },
-  innerContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    backgroundColor: "#1A1A1D",
-    borderRadius: "8px",
-    height: "60%",
-    width: "35%"
-  }
-}))
-const ENDPOINT = 'http://localhost:4000'
+const ENDPOINT = 'http://localhost:4000';
 let socket; 
 
-const Chat = ({ location }) => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    backgroundColor: '#313738'
+  },
+  grid: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    backgroundColor: '#343b36'
+  }
+}));
+
+const Chat = ({ location }, props) => {
+
   const [username, setUsername] = useState('');
   const [node, setNode] = useState('');
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  
+
   const classes = useStyles();
+  
   
   useEffect(() => {
     const { username, node } = queryString.parse(location.search);
@@ -59,7 +58,7 @@ const Chat = ({ location }) => {
   
   useEffect(() => {
     socket.on('message', message => {
-      setMessages(messages => [ ...messages, message ]);
+      setMessages(messages => [...messages, message]);
     });
     
     socket.on("nodeData", ({ users }) => {
@@ -72,35 +71,31 @@ const Chat = ({ location }) => {
 
     if(message) {
       socket.emit('sendMessage', message, () => setMessage(''));
-    }
-  }
+    };
+  };
 
-  console.log(message, messages)
+  console.log(message, messages);
 
   return (
-    <Arwes>
-      <Box className={classes.container}>
-        <Frame
-          animate={true}
-          level={3}
-          corners={4}
-          layer='primary'
-        >
-          <Box className={classes.innerContainer}>
-            <ChatInfoBar node={ node } />
-            <ChatMessages messages={ messages } username={ username }/>
+      <div className={classes.root}>
+        <Grid className={classes.grid}>
+            <ChatInfoBar 
+              node={ node } 
+            />
+            <ChatMessages 
+              messages={ messages } 
+              username={ username }
+            />
             <ChatTerminal 
               message={ message }
               setMessage={ setMessage }
               sendMessage={ sendMessage }
             />
-          </Box>
-        </Frame>
-        <ConnectedUsers users = { users }/>
-      </Box>
-    </Arwes>
-  )
-}
+        </Grid>
+        <ConnectedUsers users={ users }/>
+      </div>
+  );
+};
 
 
 export default Chat;

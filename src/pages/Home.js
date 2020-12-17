@@ -1,21 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Button,
+  Grid,
+  Paper,
+} from '@material-ui/core';
 // import CodeVidGlitched01Short from '../video/CodeVidGlitched01Short.mp4'
 import CodeVidGlitched01Long from '../video/CodeVidGlitched01Long.mp4'
-import { 
-          Button, 
-          Row, 
-          Col,
-                  } from 'arwes';
 
 
-const Home = (props) => {
+
+const Home = () => {
   return (
     <div>
       <video autoPlay loop muted
         style={{
           position: "absolute",
-          marginTop: "-1px",
+          marginTop: "63px",
           padding: "0",
           width: "100%",
           left: "50%",
@@ -29,23 +30,19 @@ const Home = (props) => {
       >
         <source src={CodeVidGlitched01Long} type="video/mp4" />
       </video>
-        <Row>
-          <Col s={12}>
-            <Col s={3}></Col>
-            <Col s={3}>
-              <Button animate layer='alert'>
-                <Link to={'/register'}>Register</Link>
-              </Button>
-            </Col>
-            <Col s={3}>
-              <Button animate layer='alert'>
-                <Link to={'/login'}>Login</Link>
-              </Button>  
-            </Col>
-            <Col s={3}></Col>
-          </Col>
-        </Row>
+      <div style={{ marginTop: 20, padding: 30}}>
+        <Grid container spacing={40} justify="center">
+          <Paper style={{ backgroundColor: 'black' }}>
+            <Button variant="outlined" color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
+              <Link to={'/register'}>Register</Link>
+            </Button>
 
+            <Button color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
+              <Link to={'/login'}>Login</Link>
+            </Button> 
+          </Paper>
+        </Grid>
+      </div>
     </div>
   );
 }
