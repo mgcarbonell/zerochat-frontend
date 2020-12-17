@@ -1,24 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import queryString from 'query-string'
+import React, { useState, useEffect } from 'react';
+import queryString from 'query-string';
 import io from "socket.io-client";
-import ChatInfoBar from '../components/ChatInfoBar'
-import ChatTerminal from '../components/ChatTerminal'
-import ChatMessages from '../components/ChatMessages'
-import ConnectedUsers from '../components/ConnectedUsers'
-import { makeStyles } from '@material-ui/core/styles'
+import ChatInfoBar from '../components/ChatInfoBar';
+import ChatTerminal from '../components/ChatTerminal';
+import ChatMessages from '../components/ChatMessages';
+import ConnectedUsers from '../components/ConnectedUsers';
+import { makeStyles } from '@material-ui/core/styles';
 import {
-  Box,
   Grid
-} from '@material-ui/core'
-
-
+} from '@material-ui/core';
 
 const ENDPOINT = 'http://localhost:4000';
 let socket; 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    backgroundColor: '#313738'
+  },
+  grid: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    backgroundColor: '#343b36'
   }
 }));
 

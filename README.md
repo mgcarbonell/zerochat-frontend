@@ -1,4 +1,4 @@
-# 0chat
+# zerochat (0chat)
 
 ## About
 
@@ -55,7 +55,9 @@ Anthony Sistilli
 CodeAffection
 Bruno Antunes
 
+Thank you to PHOTOMOSH for the glitches!
+
 Thank you to Spotify for the techno and lo-fi hip-hop playlists.
 Thank you to my Spotify DnB playlist.
 
-Thanks Mom, thanks tia Ana!
+Special thank you to mi Mama! And to my tia Ana!
