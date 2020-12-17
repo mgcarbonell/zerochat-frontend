@@ -1,4 +1,7 @@
 import React from 'react'
+import {
+  Typography
+} from '@material-ui/core'
 
 const ChatMessage = ({ message: {text, user}, username }) => {
   
@@ -14,18 +17,18 @@ const ChatMessage = ({ message: {text, user}, username }) => {
     sentByCurrentUser
     ? ( //message container -> username -> messageBox -> text
       <div>
-        <p>{trimmedUsername}</p>
+        <Typography variant="body">{trimmedUsername}</Typography>
         <div>
-          <p>{text}</p>
+          <Typography variant="body">{text}</Typography>
         </div>
       </div>
     )
     : (
       <div>
         <div>
-          <p>{text}</p>
+          <Typography variant="body">{text}</Typography>
         </div>
-        <p>{user}</p>
+        <Typography variant="body">{user}</Typography>
       </div>
     )
   )

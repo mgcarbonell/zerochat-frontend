@@ -5,7 +5,7 @@ import {
   Toolbar,
   IconButton,
   Typography
- } from '@material-ui/core'
+} from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
 
 // display the room name, "online icon" and most importantly
