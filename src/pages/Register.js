@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import UserModel from '../models/user';
 import { 
   Button, 
-  TextField 
+  TextField,
+  Typography 
 } from '@material-ui/core';
 
 
@@ -50,7 +51,7 @@ const Register = props => {
 
   return (
     <div>
-      <h4>Register</h4>
+      <Typography variant="h4">Register</Typography>
       <form noValidate autoComplete="off" onSubmit={ handleSubmit }>
         <div className="form-group">
           <TextField 
@@ -118,7 +119,7 @@ const Register = props => {
           color="primary" 
           type="submit"
         >
-          Register
+          register
         </Button>
       </form>
     </div>

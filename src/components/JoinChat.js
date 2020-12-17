@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Typography
+} from '@material-ui/core'
 
 // use puffs
 const JoinChat = () => {
@@ -12,7 +15,7 @@ const JoinChat = () => {
   return (
         <div>
           <div>
-            <h2>Where do you wish to connect on cyberspace?</h2>
+            <Typography variant="h2">Where do you wish to connect on cyberspace?</h2>
             <div>
               <input 
                 placeholder="Node" 
@@ -23,7 +26,7 @@ const JoinChat = () => {
             <Link 
               onClick={event => !node ? event.preventDefault() : null} 
               to={`/chat?username=${username}&node=${node}`}>
-              <button animate>Connect to Node</button>
+              <button animate>connect to node</button>
             </Link>
           </div>
         </div>

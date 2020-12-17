@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
+import { 
+  Toolbar,
+  IconButton,
+  Typography
+ } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
 
 // display the room name, "online icon" and most importantly
@@ -35,7 +38,7 @@ const ChatInfoBar = ({ node }) => {
   return (
       <div className={classes.root}>
           <Toolbar className={classes.toolBar}>
-            <h3 className={classes.title}>{ node }</h3>
+            <Typography variant="h4" className={classes.title}>{ node }</Typography>
             <IconButton
               className={classes.closeIcon}
               variant="contained"

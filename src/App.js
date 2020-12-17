@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Routes from './config/Routes';
 import UserModel from './models/user';
 import Navbar from './components/Navbar';
+import { ThemeProvider } from '@material-ui/core';
+import theme from './theme';
+import './App.css';
 
 
 function App() {
@@ -34,19 +37,21 @@ function App() {
   }
 
   return (
-        <div>
-          <Navbar
-            currentUser={ currentUser }
-            currentUsername = { currentUsername }
-            logout = { logout }
-          />
-          <Routes 
-            currentUser={ currentUser }
-            currentUsername={ currentUsername }
-            storeUser={ storeUser }
-            storeUsername={ storeUsername }
-          />
-        </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <Navbar
+          currentUser={ currentUser }
+          currentUsername = { currentUsername }
+          logout = { logout }
+        />
+        <Routes 
+          currentUser={ currentUser }
+          currentUsername={ currentUsername }
+          storeUser={ storeUser }
+          storeUsername={ storeUsername }
+        />
+      </div>
+    </ThemeProvider>
   );
 }
 

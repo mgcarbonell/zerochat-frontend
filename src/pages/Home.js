@@ -5,7 +5,7 @@ import CodeVidGlitched01Long from '../video/CodeVidGlitched01Long.mp4'
 
 
 
-const Home = (props) => {
+const Home = () => {
   return (
     <div>
       <video autoPlay loop muted

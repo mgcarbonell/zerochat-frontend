@@ -14,21 +14,25 @@ CSS3
 
 ## Future Development
 
+* Add a friend system
+* Allow users to view other users' profiles (for bio)
+* Restyle appbar to look like a Win95 appbar.
+
 ## Credits
 
 Credit is given where credit is due:
 
 Thank you again to... 
-Brock Whitbread-Cole for the idea and support with SocketIO,
-James Sinkler for steering me away from something mediocre,
-Michael Petty for deep diving into CORS with me,
-David Schawel for helping me out with React,
-Erik Heikkila for showing me how to implement Flask + React (even though I didn't go that way),
-Seanny Phoenix for React help (as always),
-Weston Bailey for the encouragement on the theme (even though I only just met him)
+Brock Whitbread-Cole for the idea and support with SocketIO.
+James Sinkler for steering me away from something mediocre, and for the troubleshooting.
+Michael Petty for deep diving into CORS with me.
+David Schawel for helping me out with React.
+Erik Heikkila for showing me how to implement Flask + React (even though I didn't go that way).
+Seanny Phoenix for React help (as always).
+Weston Bailey for the encouragement on the theme (even though I only just met him).
 
 Thank you to my classmates...
-Devin Blair for checking in and the encouragement,
+Devin Blair for checking in, explaining theming, and the encouragement,
 Nick Schmitt for giving me reality and sanity checks,
 Brock Molmen, Jane Cho, and Lauren Nguyen for assisting in the update, delete route ideas
 

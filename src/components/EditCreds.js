@@ -21,15 +21,19 @@ export default function EditCreds(props) {
     event.preventDefault();
     UserModel.update({ username, email, bio })
     .then(() => {
-      props.setFormToggle(false)
+      setFormToggle(false)
     });
   };
+
+  const handleClose = () => {
+    setFormToggle(false)
+  }
 
 
   return (
     <div style={{ padding: 20 }}>
       <IconButton
-        onClick={() => { setFormToggle(false) }}
+        onClick={() => handleClose()}
       >
         <CloseIcon />
       </IconButton>
@@ -84,7 +88,7 @@ export default function EditCreds(props) {
         <Button
           type="submit"
         >
-          Submit
+          submit
         </Button>
       </form>
     </div>

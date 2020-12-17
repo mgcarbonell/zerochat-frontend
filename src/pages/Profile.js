@@ -5,10 +5,11 @@ import EditCreds from '../components/EditCreds';
 import CredentialsContainer from '../components/CredentialsContainer';
 import ConfirmDialog from '../components/ConfirmDialog';
 import { 
-  Card,
+  Paper,
   Grid,
   IconButton,
-  makeStyles
+  makeStyles,
+  Typography
 } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -37,14 +38,16 @@ const Profile = (props) => {
 
   return (
     <div>
-      <h1>Welcome Netrunner</h1>
-      <h3>Credentials</h3>
-      <Card>
+      <Typography variant="h1">Welcome Netrunner</Typography>
+      <Typography variant="h3">Credentials</Typography>
+      <Paper>
       { formToggle ?
       <>
         <EditCreds
           username={username}
           // bio={}
+          formToggle={formToggle}
+          setFormToggle={setFormToggle}
         />
       </>  
       :
@@ -59,23 +62,20 @@ const Profile = (props) => {
           <EditIcon />
         </IconButton>
         <IconButton aria-label="delete" onClick={() => setConfirmOpen(true)}>
-            <DeleteIcon />
-          </IconButton>
+          <DeleteIcon />
+        </IconButton>
           <ConfirmDialog
               title="Have you been burned?"
               open={confirmOpen}
               setOpen={setConfirmOpen}
               onConfirm={handleDelete}
           >
-            Burn user
+            burn user
           </ConfirmDialog>
-      </Card>
+      </Paper>
 
       <button>
-        <Link to={ '/join' }>Enter Cyberspace</Link>
-      </button>
-      <button>
-
+        <Link to={ '/join' }>enter cyberspace</Link>
       </button>
     </div>
   );

@@ -17,6 +17,7 @@
     "query-string": "^6.13.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-glitch-effect": "^2.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "react-scroll-to-bottom": "^4.0.0",

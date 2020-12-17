@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import UserModel from '../models/user'
-import { Button, TextField } from '@material-ui/core';
+import { 
+  Button, 
+  TextField,
+  Typography 
+} from '@material-ui/core';
 // import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -44,7 +48,7 @@ const Login = props => {
 
   return (
     <div>
-      <h4>Login</h4>
+      <Typography variant="h4">Login</Typography>
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="form-group">
           <TextField 
@@ -76,7 +80,7 @@ const Login = props => {
           color="primary" 
           type="submit"
         >
-          Login
+          login
         </Button>
       </form>
     </div>
