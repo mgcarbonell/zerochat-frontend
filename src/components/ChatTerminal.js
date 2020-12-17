@@ -2,15 +2,23 @@ import React from 'react';
 import {
   Button,
   TextField,
-  Paper
+  Box,
+  Typography
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 // let's make this the input bar
 
 const useStyles = makeStyles(theme => ({
-  terminal: {
+  terminalForm: {
+    display: 'flex'
+
+  },
+  terminalText: {
     color: '#45C431'
+  },
+  button:{
+    borderRadius: '0px'
   }
 }));
 
@@ -19,13 +27,11 @@ const ChatTerminal = ({ message, setMessage, sendMessage }) => {
   const classes = useStyles();
 
   return (
-    <Paper 
-      variant="outlined" 
-      square
-      style={{ display: 'inline-block' }}
-    >
+
+    <div>
+    <Box borderTop={1} borderColor="primary">
       <form>
-        {'>'}
+        <Typography style={{ color: '#45C431', display: 'inline-block' }}>{`>`}</Typography>
           <TextField 
             type="text"
             placeholder=""
@@ -33,18 +39,20 @@ const ChatTerminal = ({ message, setMessage, sendMessage }) => {
             onChange={(event) => setMessage(event.target.value)}
             onKeyPress={(event) => event.key === 'Enter' ? sendMessage(event) : null}
             InputProps={{
-                  className: classes.terminal
+                  className: classes.terminalText
                 }}
           />
-          <Button 
-            animate 
-            layer='success' 
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="secondary"
             onClick={(event) => sendMessage(event)}
           >
             send
           </Button>
       </form>
-    </Paper>
+    </Box>
+    </div>
   )
 }
 

@@ -78,20 +78,21 @@ const Chat = ({ location }, props) => {
 
   return (
       <div className={classes.root}>
-        <Grid container>
-          <Grid item xs={12}>
-            <ChatInfoBar node={ node } />
-          </Grid>
-          <Grid>
-            <ChatMessages messages={ messages } username={ username }/>
-          </Grid>
-          <ChatTerminal 
-            message={ message }
-            setMessage={ setMessage }
-            sendMessage={ sendMessage }
-          />
+        <Grid className={classes.grid}>
+            <ChatInfoBar 
+              node={ node } 
+            />
+            <ChatMessages 
+              messages={ messages } 
+              username={ username }
+            />
+            <ChatTerminal 
+              message={ message }
+              setMessage={ setMessage }
+              sendMessage={ sendMessage }
+            />
         </Grid>
-        <ConnectedUsers users = { users }/>
+        <ConnectedUsers users={ users }/>
       </div>
   );
 };

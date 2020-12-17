@@ -6,6 +6,7 @@ import {
   IconButton,
   Typography
 } from '@material-ui/core'
+import PublicIcon from '@material-ui/icons/Public';
 import CloseIcon from '@material-ui/icons/Close'
 
 // display the room name, "online icon" and most importantly
@@ -13,22 +14,26 @@ import CloseIcon from '@material-ui/icons/Close'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-  },
-  toolBar: {
-    margin: 'auto',
-    maxWidth: 800,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '60px',
     width: '100%'
   },
-  chatIcon: {
-    marginRight: theme.spacing(2),
+  roomIcon: {
+    marginRight: '5%'
   },
-  title: {
-    flexGrow: 2
+  left: {
+    flex: '0.5',
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '5%'
   },
-  closeIcon: {
-    flexDirection: "row-reverse",
-    color: 'secondary'
+  right: {
+    flex: '0.5',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginRight: '5%'
   },
 }));
 
@@ -36,18 +41,35 @@ const ChatInfoBar = ({ node }) => {
   const classes = useStyles();
 
   return (
-      <div className={classes.root}>
-          <Toolbar className={classes.toolBar}>
-            <Typography variant="h4" className={classes.title}>{ node }</Typography>
-            <IconButton
-              className={classes.closeIcon}
-              variant="contained"
-              aria-label="close"
-              component={ Link } 
-              to={'/join'}
-            >
-              <CloseIcon color="action"/>
-            </IconButton>
+      <div>
+          <Toolbar className={classes.root}>
+            <div className={classes.left}>
+              <PublicIcon
+                className={classes.roomIcon}
+                color='primary' 
+                style={{ fontSize: '200%' }}
+              />
+              <Typography 
+                variant="h2"
+                style={{ color: "#F7FBEF" }}
+              >
+                { node }
+              </Typography>
+            </div>
+            <div className={classes.right}>
+              <IconButton
+                className={classes.closeIcon}
+                variant="contained"
+                aria-label="close"
+                component={ Link } 
+                to={'/join'}
+              >
+                <CloseIcon 
+                  color="secondary"
+                  style={{ fontSize: '150%' }}
+                />
+              </IconButton>
+            </div>
           </Toolbar>
       </div>
   )
