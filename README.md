@@ -48,6 +48,8 @@ See you, Space Cowboy.
 * Add a friend system.
 * Allow users to view other users' profiles (for bio).
 * Restyle appbar to look like a Win95 appbar.
+* Some more styling, integrating another frontend framework, and overriding Material-UI more.
+* Fix the chat room.
 
 ## Credits
 
