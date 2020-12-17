@@ -5,21 +5,32 @@ import ChatInfoBar from '../components/ChatInfoBar'
 import ChatTerminal from '../components/ChatTerminal'
 import ChatMessages from '../components/ChatMessages'
 import ConnectedUsers from '../components/ConnectedUsers'
+import { makeStyles } from '@material-ui/core/styles'
 import {
-  Box
+  Box,
+  Grid
 } from '@material-ui/core'
 
 
 
-const ENDPOINT = 'http://localhost:4000'
+const ENDPOINT = 'http://localhost:4000';
 let socket; 
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1
+  }
+}));
+
 const Chat = ({ location }, props) => {
+
   const [username, setUsername] = useState('');
   const [node, setNode] = useState('');
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+
+  const classes = useStyles();
   
   
   useEffect(() => {
@@ -58,18 +69,22 @@ const Chat = ({ location }, props) => {
   console.log(message, messages);
 
   return (
-      <Box>
-        <Box>
-          <ChatInfoBar node={ node } />
-          <ChatMessages messages={ messages } username={ username }/>
+      <div className={classes.root}>
+        <Grid container>
+          <Grid item xs={12}>
+            <ChatInfoBar node={ node } />
+          </Grid>
+          <Grid>
+            <ChatMessages messages={ messages } username={ username }/>
+          </Grid>
           <ChatTerminal 
             message={ message }
             setMessage={ setMessage }
             sendMessage={ sendMessage }
           />
-        </Box>
+        </Grid>
         <ConnectedUsers users = { users }/>
-      </Box>
+      </div>
   );
 };
 

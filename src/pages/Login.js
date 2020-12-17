@@ -4,13 +4,29 @@ import UserModel from '../models/user'
 import { 
   Button, 
   TextField,
-  Typography 
+  Typography,
+  Grid,
+  Paper 
 } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import glitchednyc from '../images/glitchednyc.gif'
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  terminal: {
+    color: '#45C431'
+  }
+
+}));
 
 const Login = props => {
-  // const classes = useStyles();
+
+  const classes = useStyles();
 
   let [email, setEmail] = useState('')
   let [password, setPassword] = useState('')
@@ -47,43 +63,75 @@ const Login = props => {
   if (props.currentUser) return <Redirect to='/profile' />
 
   return (
-    <div>
-      <Typography variant="h2">Welcome to Access Control</Typography>
-      <Typography variant="h4">Please Enter Your Credentials</Typography>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <TextField 
-            onChange={ handleEmail }
-            value={ email }
-            type="email"
-            id="email" 
-            name="email"
-            label="Email" 
-            variant="filled" 
-            required
-          />
-        </div>
-
-        <div className="form-group">
-        <TextField
-          onChange={ handlePassword }
-          value={ password }
-          type="password"
-          id="password"
-          name="password"
-          label="password"
-          variant="filled"
-          required
-        />        
-        </div>
-        <Button 
-          variant="contained" 
-          color="primary" 
-          type="submit"
+    <div className={classes.root}>
+      <img
+        src={glitchednyc}
+        style={{
+          position: "absolute",
+          marginTop: "63px",
+          padding: "0",
+          width: "100%",
+          left: "50%",
+          top: "50%",
+          height: "100%",
+          objectFit: "cover",
+          transform: "translate(-50%, -50%)",
+          zIndex: "-1"
+        }}
+        alt={'cyberpunk New York highrise'}
+      />
+      <Paper style={{ backgroundColor: '#36454F', display: 'inline-block', marginTop: '20px', padding: '5px' }}>
+        <Grid 
+          container
+          direction="column"
+          alignItems="center"
+          justify="center"  
         >
-          login
-        </Button>
-      </form>
+          <Typography variant="h2" style={{ color: '#D63AF9' }}>Welcome to Access Control</Typography>
+          <Typography variant="h4" style={{ color: '#D63AF9' }}>Please Enter Your Credentials</Typography>
+          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <TextField 
+                onChange={ handleEmail }
+                value={ email }
+                type="email"
+                id="email" 
+                name="email"
+                label="Email" 
+                variant="filled" 
+                required
+                InputProps={{
+                  className: classes.terminal
+                }}
+              />
+            </div>
+
+            <div className="form-group">
+            <TextField
+              onChange={ handlePassword }
+              value={ password }
+              type="password"
+              id="password"
+              name="password"
+              label="password"
+              variant="filled"
+              required
+              InputProps={{
+                  className: classes.terminal
+                }}
+            />        
+            </div>
+            <Button 
+              variant="contained" 
+              color="primary" 
+              type="submit"
+              style={{ marginLeft: '60px', marginTop: '10px'}}
+            >
+              login
+            </Button>
+          </form>
+        </Grid>
+      </Paper>  
     </div>
   )
 }

@@ -18,7 +18,7 @@ import {
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Barcode from 'react-barcode'
-import glitchedhongkong from '../images/glitchedhongkong.png'
+import glitchedhongkong from '../images/glitchedhongkong.gif'
 
 
 const useStyles = makeStyles(theme => ({
@@ -29,7 +29,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
 
-  
 }));
 
 
@@ -57,7 +56,22 @@ const Profile = (props) => {
 
   return (
     <div className={classes.root}>
-      <div>
+      <img
+        src={glitchedhongkong}
+        style={{
+          position: "absolute",
+          marginTop: "63px",
+          padding: "0",
+          width: "100%",
+          left: "50%",
+          top: "50%",
+          height: "100%",
+          objectFit: "cover",
+          transform: "translate(-50%, -50%)",
+          zIndex: "-1"
+        }}
+        alt={'cyberpunk hong kong'}
+      />
         <Paper style={{ backgroundColor: '#36454F', marginTop: '20px', padding: '5px' }}>
           <Grid 
             container
@@ -129,8 +143,7 @@ const Profile = (props) => {
               </Grid>
             </Grid>
           </Grid>
-        </Paper>
-      </div>    
+        </Paper>   
     </div>
   );
 };
