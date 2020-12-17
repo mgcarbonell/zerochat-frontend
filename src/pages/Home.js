@@ -33,11 +33,11 @@ const Home = () => {
       <div style={{ marginTop: 20, padding: 30}}>
         <Grid container spacing={40} justify="center">
           <Paper style={{ backgroundColor: 'black' }}>
-            <Button variant="outlined" color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
+            <Button variant="contained" color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
               <Link to={'/register'}>Register</Link>
             </Button>
 
-            <Button color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
+            <Button variant="contained" color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
               <Link to={'/login'}>Login</Link>
             </Button> 
           </Paper>
