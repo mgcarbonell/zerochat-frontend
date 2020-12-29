@@ -11,26 +11,29 @@ import {
 } from '@material-ui/core';
 
 const ENDPOINT = 'http://localhost:4000';
+
 let socket; 
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
+  outerBox: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
     backgroundColor: '#313738'
   },
-  grid: {
+  box: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#343b36'
-  }
+    backgroundColor: '#343b36',
+    height: '60%',
+    width: '35%'
+  },
+  
 }));
 
-const Chat = ({ location }, props) => {
+const Chat = ({ location }) => {
 
   const [username, setUsername] = useState('');
   const [node, setNode] = useState('');
@@ -64,7 +67,7 @@ const Chat = ({ location }, props) => {
     socket.on("nodeData", ({ users }) => {
       setUsers(users);
     });
-}, []);
+  }, []);
 
   const sendMessage = (event) => {
     event.preventDefault();
@@ -77,23 +80,23 @@ const Chat = ({ location }, props) => {
   console.log(message, messages);
 
   return (
-      <div className={classes.root}>
-        <Grid className={classes.grid}>
-            <ChatInfoBar 
-              node={ node } 
-            />
-            <ChatMessages 
-              messages={ messages } 
-              username={ username }
-            />
-            <ChatTerminal 
-              message={ message }
-              setMessage={ setMessage }
-              sendMessage={ sendMessage }
-            />
-        </Grid>
-        <ConnectedUsers users={ users }/>
+    <div className={classes.outerBox}>
+      <div className={classes.box}>
+        <ChatInfoBar 
+          node={ node } 
+        />
+        <ChatMessages 
+          messages={ messages } 
+          username={ username }
+        />
+        <ChatTerminal 
+          message={ message }
+          setMessage={ setMessage }
+          sendMessage={ sendMessage }
+        />
       </div>
+      <ConnectedUsers users={ users }/>
+    </div>
   );
 };
 
