@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Button,
   TextField,
-  Box,
   Typography
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,14 +10,22 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   terminalForm: {
-    display: 'flex'
-
+    display: 'flex',
+    borderTop: '2px solid #D3D3D3'
   },
   terminalText: {
+    border: 'none',
+    borderRadius: '0',
+    padding: '5%',
+    width: '80%',
     color: '#45C431'
   },
   button:{
-    borderRadius: '0px'
+    borderRadius: '0px',
+    textTransform: 'uppercase',
+    display: 'inline-block',
+    border: 'none',
+    width: '20%'
   }
 }));
 
@@ -27,10 +34,8 @@ const ChatTerminal = ({ message, setMessage, sendMessage }) => {
   const classes = useStyles();
 
   return (
-
     <div>
-    <Box borderTop={1} borderColor="primary">
-      <form>
+      <form className={classes.terminalForm}>
         <Typography style={{ color: '#45C431', display: 'inline-block' }}>{`>`}</Typography>
           <TextField 
             type="text"
@@ -51,7 +56,6 @@ const ChatTerminal = ({ message, setMessage, sendMessage }) => {
             send
           </Button>
       </form>
-    </Box>
     </div>
   )
 }

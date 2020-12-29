@@ -5,14 +5,14 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginLeft: '100px',
-    height: '60%',
-    justifyContent: 'space-between',
-    color: '#7CB518'
-  },
+  // root: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   marginLeft: '100px',
+  //   height: '60%',
+  //   justifyContent: 'space-between',
+  //   color: '#7CB518'
+  // },
   users: {
     display: 'flex',
     alignItems: 'center',
@@ -29,7 +29,7 @@ const ConnectedUsers = ({ users }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div>
       {
         users
         ? (

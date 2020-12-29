@@ -55,22 +55,24 @@ const ChatMessage = ({ message: {text, user}, username }) => {
   //message container -> username -> messageBox -> text
   return (
     sentByCurrentUser
-    ? ( 
-      <div className={`classes.container ${classes.justifyEnd}`}>
-        <Typography variant="body" className={classes.sentBy}>{trimmedUsername}</Typography>
-        <div className={classes.textBox}>
+    ? 
+      ( 
+        <div className={`classes.container ${classes.justifyEnd}`}>
+          <Typography variant="body" className={classes.sentBy}>{trimmedUsername}</Typography>
+          <div className={classes.textBox}>
+            <Typography variant="body" className={classes.text}>{text}</Typography>
+          </div>
+        </div>
+      )
+    : 
+      (
+        <div className={`classes.container ${classes.justifyEnd}`}>
+          <div className={classes.textBox}>
+            <Typography variant="body" className={classes.sentByUser}>{user}</Typography>
+          </div>
           <Typography variant="body" className={classes.text}>{text}</Typography>
         </div>
-      </div>
-    )
-    : (
-      <div className={`classes.container ${classes.justifyEnd}`}>
-        <div className={classes.textBox}>
-          <Typography variant="body" className={classes.sentByUser}>{user}</Typography>
-        </div>
-        <Typography variant="body" className={classes.text}>{text}</Typography>
-      </div>
-    )
+      )
   )
 }
 
