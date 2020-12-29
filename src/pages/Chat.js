@@ -6,9 +6,7 @@ import ChatTerminal from '../components/ChatTerminal';
 import ChatMessages from '../components/ChatMessages';
 import ConnectedUsers from '../components/ConnectedUsers';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  Grid
-} from '@material-ui/core';
+
 
 const ENDPOINT = 'http://localhost:4000';
 
