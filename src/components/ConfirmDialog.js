@@ -6,10 +6,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import skull from '../images/skullfast.gif';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: 'black',
+    background: '#000000',
   },
 
 }));
@@ -19,7 +20,7 @@ const ConfirmDialog = (props) => {
 
   const classes = useStyles();
 
-  const { title, img, children, open, setOpen, onConfirm } = props;
+  const { title, children, open, setOpen, onConfirm } = props;
 
   return (
     <div className={classes.root}>
@@ -29,19 +30,19 @@ const ConfirmDialog = (props) => {
         aria-labelledby="Confirmation Dialog"
       >
         {/* inherits title and content as a prop from the parent component */}
-        <DialogTitle id="confirm-dialog">{title}</DialogTitle>
+        <DialogTitle id="confirm-dialog" style={{ backgroundColor: '#000000' }}>
+          <Typography variant="h4" style={{ color: '#primary' }}>{title}</Typography>
+          </DialogTitle>
         <img src={skull} alt="dissolving skull" />
-        <DialogContent>
-          
+        <DialogContent style={{ backgroundColor: '#000000', textAlign: 'center' }}>
           {children}
         </DialogContent>
-        <DialogActions>
+        <DialogActions style={{ backgroundColor: '#000000', display: 'flex', justifyContent: 'center' }}>
           <Button
             variant="contained"
             onClick={() => setOpen(false)}
             color="primary"
-            style={{ display: 'inline-block', justifyContent: 'flex-start', fontSize: '200%' }}
-
+            style={{ fontSize: '100%', margin: '10px' }}
           >
             NO
           </Button>
@@ -52,8 +53,7 @@ const ConfirmDialog = (props) => {
               onConfirm();
             }}
             color="secondary"
-            style={{ display: 'inline-block', justifyContent: 'flex-end', fontSize: '200%' }}
-
+            style={{ fontSize: '100%', margin: '10px' }}
           >
             YES
           </Button>

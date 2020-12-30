@@ -23,11 +23,16 @@ import glitchedhongkong from '../images/glitchedhongkong.gif'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  credContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  }
 
 }));
 
@@ -79,12 +84,12 @@ const Profile = (props) => {
             alignItems="center"
             justify="center"  
           >
-            <Grid item style={{ padding: 40, justifyContent: "center" }}>
+            <Grid className={classes.credContainer} item style={{ padding: 40, justifyContent: "center" }}>
               <Typography variant="h1" style={{ color: '#D63AF9' }}>
                 Welcome Netrunner 
               </Typography>
-              <Grid justify="center" style={{ padding: 20 }}>
-                <Card justify="center" style={{ display: 'inline-block'}}>
+              <Grid style={{ padding: 20 }}>
+                <Card style={{ display: 'inline-block' }}>
                   <CardContent>
                     <Typography variant="h1">Credentials</Typography>
                     { formToggle ?
@@ -106,18 +111,18 @@ const Profile = (props) => {
                     }
                     <Barcode value = {username} />
                   </CardContent>
-                  <CardActions style={{ justifyContent: 'space-between' }}>
+                  <CardActions style={{ display: 'flex', flexFlow: 'row', justifyContent: 'center'}}>
                     <IconButton
                       aria-label="edit user" 
                       onClick={handleToggle}
-                      style={{ display: 'inline-block', justifyContent: 'flex-start', fontSize: '200%' }}
+                      style={{ fontSize: '200%' }}
                     >
                       <EditIcon />
                     </IconButton>
                     <IconButton 
                       aria-label="delete" 
-                      style={{ display: 'inline-block', justifyContent: 'flex-end', fontSize: '200%' }}
                       onClick={() => setConfirmOpen(true)}
+                      style={{ fontSize: '200%' }}
                     >
                       <DeleteIcon />
                     </IconButton>
@@ -127,15 +132,17 @@ const Profile = (props) => {
                         setOpen={setConfirmOpen}
                         onConfirm={handleDelete}
                     >
-                      burn user
+                      <Typography variant="body" style={{ color: '#D63AF9' }}>
+                        BURN USER
+                      </Typography>
                     </ConfirmDialog>
                   </CardActions>
                 </Card>
-                <Grid>
+                <Grid >
                   <Button 
                     variant="contained" 
                     color="secondary"
-                    style={{ marginLeft: '40px'}}
+                    style={{ width: '100%' }}
                   >
                     <Link to={ '/join' }>enter cyberspace</Link>
                   </Button>
