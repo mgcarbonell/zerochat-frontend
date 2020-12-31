@@ -29,19 +29,11 @@ const theme = createMuiTheme({
     }
   },
   overrides: {
-    MuiCssBaseline: {
-      '@body': {
-        backgroundColor: '#36454F'
-        }
-      },
     MuiButton: {
       root: {
         textTransform: 'none'
       }
     },
-    MuiAppBar: {
-      color: 'black'
-    }
   },
   typography: {
     fontFamily: font,
