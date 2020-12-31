@@ -31,7 +31,7 @@ const ConfirmDialog = (props) => {
       >
         {/* inherits title and content as a prop from the parent component */}
         <DialogTitle id="confirm-dialog" style={{ backgroundColor: '#000000' }}>
-          <Typography variant="h4" style={{ color: '#primary' }}>{title}</Typography>
+          <Typography variant="h4" style={{ color: '#D63AF9' }}>{title}</Typography>
           </DialogTitle>
         <img src={skull} alt="dissolving skull" />
         <DialogContent style={{ backgroundColor: '#000000', textAlign: 'center' }}>

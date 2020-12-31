@@ -33,6 +33,7 @@ const Home = () => {
       <div style={{ marginTop: 50, padding: 40}}>
         <Grid container spacing={40} justify="center">
           <Paper style={{ backgroundColor: 'black' }}>
+            
             <Button variant="contained" color="primary" style={{ marginTop: 30, marginBottom: 30, marginLeft: 30, marginRight: 30 }}>
               <Link to={'/register'}>Register</Link>
             </Button>

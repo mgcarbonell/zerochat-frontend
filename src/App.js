@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('id'))
   const [currentUsername, setCurrentUsername] = useState(localStorage.getItem('username'));
-  const [bio, setBio] = useState()
+  const [bio, setCurrentBio] = useState(localStorage.getItem('bio'))
   
   const storeUser = (userId) => {
     localStorage.setItem('id', userId)
@@ -21,7 +21,11 @@ function App() {
   const storeUsername = (username) => {
     localStorage.setItem('username', username)
     setCurrentUsername( username )
-    console.log(username)
+  }
+  
+  const storeBio = (bio) => {
+    localStorage.setItem('bio', bio)
+    setCurrentBio( bio )
   }
 
   const logout = (event) => {
@@ -29,6 +33,7 @@ function App() {
 
     localStorage.removeItem('id')
     localStorage.removeItem('username')
+    localStorage.removeItem('bio')
 
 
     UserModel.logout()
@@ -49,8 +54,10 @@ function App() {
         <Routes 
           currentUser={ currentUser }
           currentUsername={ currentUsername }
+          currentBio={ bio }
           storeUser={ storeUser }
           storeUsername={ storeUsername }
+          storeBio ={ storeBio }
         />
       </div>
     </ThemeProvider>
