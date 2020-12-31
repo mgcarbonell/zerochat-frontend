@@ -41,13 +41,14 @@ export default class UserModel {
     }).then(res => res.json())
   };
 
-  static delete(data) {
+  static delete(currentUser) {
     return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/users/destroy`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(data)
+      credentials: 'include',
+      body: JSON.stringify(currentUser)
     }).then(res => res.json())
   };
 };

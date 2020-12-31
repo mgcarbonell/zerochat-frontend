@@ -25,8 +25,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: '#343b36',
-    height: '60%',
-    width: '35%'
+    height: '70%',
+    width: '40%',
+    
   },
   
 }));

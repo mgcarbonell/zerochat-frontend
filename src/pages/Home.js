@@ -30,14 +30,15 @@ const Home = () => {
       >
         <source src={CodeVidGlitched01Long} type="video/mp4" />
       </video>
-      <div style={{ marginTop: 20, padding: 30}}>
+      <div style={{ marginTop: 50, padding: 40}}>
         <Grid container spacing={40} justify="center">
           <Paper style={{ backgroundColor: 'black' }}>
-            <Button variant="contained" color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
+            
+            <Button variant="contained" color="primary" style={{ marginTop: 30, marginBottom: 30, marginLeft: 30, marginRight: 30 }}>
               <Link to={'/register'}>Register</Link>
             </Button>
 
-            <Button variant="contained" color="primary" style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
+            <Button variant="contained" color="primary" style={{ marginTop: 30, marginBottom: 30, marginLeft: 30, marginRight: 30 }}>
               <Link to={'/login'}>Login</Link>
             </Button> 
           </Paper>

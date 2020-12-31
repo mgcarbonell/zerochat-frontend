@@ -67,10 +67,10 @@ const ChatMessage = ({ message: {text, user}, username }) => {
     : 
       (
         <div className={`classes.container ${classes.justifyEnd}`}>
+          <Typography variant="body" className={classes.sentByUser}>{user}</Typography>
           <div className={classes.textBox}>
-            <Typography variant="body" className={classes.sentByUser}>{user}</Typography>
+            <Typography variant="body" className={classes.text}>{text}</Typography>
           </div>
-          <Typography variant="body" className={classes.text}>{text}</Typography>
         </div>
       )
   )

@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
     padding: '5% 0',
     overflow: 'auto',
     flex: 'auto',
+    backgroundColor: '#191308'
   }
 }));
 

@@ -11,7 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   terminalForm: {
     display: 'flex',
-    borderTop: '2px solid #D3D3D3'
+    borderTop: 'solid 1px #47DAFF',
+    backgroundColor: '#191308',
   },
   terminalText: {
     border: 'none',
@@ -36,11 +37,12 @@ const ChatTerminal = ({ message, setMessage, sendMessage }) => {
   return (
     <div>
       <form className={classes.terminalForm}>
-        <Typography style={{ color: '#45C431', display: 'inline-block' }}>{`>`}</Typography>
+        <Typography style={{ color: '#45C431', display: 'inline-block', paddingTop: '30px' }}>{`>`}</Typography>
           <TextField 
             type="text"
             placeholder=""
             value={ message }
+            fullWidth={true}
             onChange={(event) => setMessage(event.target.value)}
             onKeyPress={(event) => event.key === 'Enter' ? sendMessage(event) : null}
             InputProps={{

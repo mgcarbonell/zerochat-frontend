@@ -16,11 +16,15 @@ const useStyles = makeStyles(theme => ({
   users: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '50%'
+    flexDirection: 'row',
+    marginBottom: '50%',
+    
   },
   display: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    color: '#47DAFF',
+    
   }
 }));
 
@@ -33,14 +37,17 @@ const ConnectedUsers = ({ users }) => {
       {
         users
         ? (
-          <div className={classes.users}>
-            <Typography variant="h4">
-              {users.map(({ username }) => (
-                <div key={ username } className={classes.display}>
-                  { username }
-                </div>
-              ))}
-            </Typography>
+          <div>
+            <Typography variant="h3">Connected Users</Typography>
+            <div className={classes.users}>
+              <Typography variant="h4">
+                {users.map(({ username }) => (
+                  <div key={ username } className={classes.display}>
+                    { username }
+                  </div>
+                ))}
+              </Typography>
+            </div>
           </div>
         )
         : null

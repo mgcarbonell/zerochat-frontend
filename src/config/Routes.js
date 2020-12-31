@@ -27,6 +27,8 @@ const Routes = (props) => (
                 storeUser={ props.storeUser }
                 currentUsername={ props.currentUsername }
                 storeUsername={ props.storeUsername }
+                bio={ props.bio }
+                storeBio={ props.storeBio }
               />
               
     } } />
