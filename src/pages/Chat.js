@@ -8,7 +8,7 @@ import ConnectedUsers from '../components/ConnectedUsers';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const ENDPOINT = 'https://zer0chatserver.herokuapp.com/api/v1';
+const ENDPOINT = 'https://zer0chatserver.herokuapp.com/';
 
 let socket; 
 
