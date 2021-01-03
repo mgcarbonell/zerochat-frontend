@@ -42,6 +42,7 @@ const Profile = (props) => {
   const classes = useStyles();
 
   let username = localStorage.getItem('username');
+  let bio = localStorage.getItem('bio')
 
   const [formToggle, setFormToggle] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -96,7 +97,7 @@ const Profile = (props) => {
                     <>
                       <EditProfile
                         username={username}
-                        // bio={}
+                        bio={bio}
                         formToggle={formToggle}
                         setFormToggle={setFormToggle}
                       />

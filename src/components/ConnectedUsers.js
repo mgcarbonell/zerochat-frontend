@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   display: {
     display: 'flex',
     alignItems: 'center',
-    color: '#47DAFF',
+    color: '#D63AF9',
     
   }
 }));
@@ -38,7 +38,7 @@ const ConnectedUsers = ({ users }) => {
         users
         ? (
           <div>
-            <Typography variant="h3">Connected Users</Typography>
+            <Typography variant="h3" style={{ color: '#47DAFF' }}>Connected Users</Typography>
             <div className={classes.users}>
               <Typography variant="h4">
                 {users.map(({ username }) => (
