@@ -171,6 +171,11 @@ const Register = props => {
                 }}
               />
             </div>
+            <div>
+              <Typography variant="body" style={{ color: '#D63AF9' }}>
+                Password must be at least eight characters in length. 
+              </Typography>
+            </div>
             <Button 
               variant="contained" 
               color="primary" 
