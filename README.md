@@ -42,6 +42,16 @@ See you, Space Cowboy.
 
 ![ERD](./public/images/zerochaterd.png)
 
+## Installation Instructions
+
+1. Clone down the repo and the [backend](https://github.com/mgcarbonell/zerochat-backend).
+2. `npm i` to install dependencies.
+3. Set up the backend
+    a. Create a Postgres Database for the backend.
+    b. Use sequelize to migrate the database.
+    c. Run the seedfile included to set up users.
+4. Launch frontend and backend on localhost and update .env files to point the frontend to the backend and vice versa.
+
 ## Future Development
 
 * AES256 real time encryption.
