@@ -1,9 +1,8 @@
 
-export default class UserModel {
+class UserModel {
   static create(data) {
     return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/auth/register`, {
       method: "POST",
-      mode: 'cors',
       headers: {
         "Content-Type": "application/json"
       },
@@ -15,7 +14,6 @@ export default class UserModel {
     // remember to send authorization headers
     return fetch(`${process.env.REACT_APP_INTERNAL_API_URL}/auth/login`, {
       method: "POST",
-      mode: 'cors',
       headers: {
         "Content-Type": "application/json",
       },
@@ -55,3 +53,4 @@ export default class UserModel {
   };
 };
 
+export default UserModel;

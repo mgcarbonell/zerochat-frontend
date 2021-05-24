@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const ENDPOINT = 'https://zer0chatserver.herokuapp.com/';
 
-let socket; 
+let socket;
 
 const useStyles = makeStyles(theme => ({
   outerBox: {
@@ -27,9 +27,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#343b36',
     height: '70%',
     width: '40%',
-    
+
   },
-  
+
 }));
 
 const Chat = ({ location }) => {
@@ -41,8 +41,8 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
 
   const classes = useStyles();
-  
-  
+
+
   useEffect(() => {
     const { username, node } = queryString.parse(location.search);
 
@@ -52,17 +52,17 @@ const Chat = ({ location }) => {
     setUsername(username);
 
     socket.emit('join', { username, node }, (error) => {
-      if(error) {
+      if (error) {
         alert(error);
       }
     });
   }, [ENDPOINT, location.search]);
-  
+
   useEffect(() => {
     socket.on('message', message => {
       setMessages(messages => [...messages, message]);
     });
-    
+
     socket.on("nodeData", ({ users }) => {
       setUsers(users);
     });
@@ -71,7 +71,7 @@ const Chat = ({ location }) => {
   const sendMessage = (event) => {
     event.preventDefault();
 
-    if(message) {
+    if (message) {
       socket.emit('sendMessage', message, () => setMessage(''));
     };
   };
@@ -81,20 +81,20 @@ const Chat = ({ location }) => {
   return (
     <div className={classes.outerBox}>
       <div className={classes.box}>
-        <ChatInfoBar 
-          node={ node } 
+        <ChatInfoBar
+          node={node}
         />
-        <ChatMessages 
-          messages={ messages } 
-          username={ username }
+        <ChatMessages
+          messages={messages}
+          username={username}
         />
-        <ChatTerminal 
-          message={ message }
-          setMessage={ setMessage }
-          sendMessage={ sendMessage }
+        <ChatTerminal
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
         />
       </div>
-      <ConnectedUsers users={ users }/>
+      <ConnectedUsers users={users} />
     </div>
   );
 };
